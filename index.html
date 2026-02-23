@@ -7,6 +7,22 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+        nav {
+            pointer-events: auto !important;
+            position: relative;
+            z-index: 999;
+        }
+     
+        .nav-link {
+           cursor: pointer;
+            padding: 10px 15px;
+            display: inline-block;
+        }
+        
+        h2 {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+        
         body, html { 
         <div class="bg-portal flex flex-col items-center"></div>
             margin: 0;
@@ -78,14 +94,43 @@
     </style>
 </head>
 <body class="bg-portal">
-    <div class="min-h-screen bg-black bg-opacity-50">
+    <div class="bg-portal min-h-screen flex flex-col items-center p-4">
+        <div class="z-20 flex flex-col items-center mb-6">
+            <img src="https://konawe.kemenag.go.id/media/photos/673d49819adee.png" class="w-24 h-24 object-contain" alt="Logo Kemenag">
+            <h2 class="text-white font-bold text-center mt-2 shadow-lg">
+                KEMENTERIAN AGAMA KABUPATEN KONAWE
+            </h2>
+        </div>
+        <nav class="relative z-30 w-full max-w-4xl flex overflow-x-auto whitespace-nowrap space-x-6 p-4 no-scrollbar glass-effect mb-8">
+            <a href="#" class="nav-link text-white font-semibold">Beranda</a>
+            <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" class="nav-link text-white font-semibold">Survey</a>
+            <a href="#" class="nav-link text-white font-semibold">Setjen</a>
+            <a href="#" class="nav-link text-white font-semibold">Bimas Islam</a>
+        </nav>
+        <div class="flex flex-col items-center text-center">
+            <h1 class="text-white text-4xl md:text-6xl font-black italic drop-shadow-2xl">
+                PORTAL SATU DATA
+            </h1>
+            <marquee class="mt-4 text-yellow-300 font-bold w-full max-w-lg">
+                Selamat Datang di Portal Satu Data Kemenag Kabupaten Konawe...
+            </marquee>
+        </div>
+        <div class="mt-auto py-6">
+            <div class="glass-effect p-4 text-white text-center">
+                <p class="text-sm">Jumlah Pengunjung:</p>
+                <div id="visitor-count" class="text-2xl font-mono font-bold text-green-400">
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonaweSatuData&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
+                </div>
+            </div>
+        </div>
+        <div class="min-h-screen bg-black bg-opacity-50">
         <nav class="flex overflow-x-auto whitespace-nowrap space-x-6 p-4 no-scrollbar bg-white bg-opacity-10">
             <a href="#" class="nav-link text-white">Beranda</a>
             <a href="#" class="nav-link text-white">Survey</a>
             <a href="#" class="nav-link text-white">Setjen</a>
             <a href="#" class="nav-link text-white">Bimas Islam</a>
         </nav>
-    <div class="flex flex-col items-center justify-center mt-10"></div>
+        <div class="flex flex-col items-center justify-center mt-10"></div>
         <nav class="bg-white px-10 py-3 flex items-center justify-between shadow-xl z-50 sticky top-0 border-b-4 border-yellow-400">
             <div class="flex items-center space-x-3">
                 <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" 
@@ -244,8 +289,8 @@
                 </div>
             </footer>
         </main>
+        </div>
     </div>
-
     <script>
         function updateClock() {
             const now = new Date();
