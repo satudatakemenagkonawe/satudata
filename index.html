@@ -102,19 +102,13 @@
             </h2>
         </div>
         <nav class="relative z-30 w-full max-w-4xl flex overflow-x-auto whitespace-nowrap space-x-6 p-4 no-scrollbar glass-effect mb-8">
-            <a href="#" class="nav-link text-white font-semibold">Beranda</a>
-            <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" class="nav-link text-white font-semibold">Survey</a>
-            <a href="#" class="nav-link text-white font-semibold">Setjen</a>
-            <a href="#" class="nav-link text-white font-semibold">Bimas Islam</a>
+            <div class="min-h-screen bg-black bg-opacity-50">
+                <a href="#" class="nav-link text-white font-semibold">Beranda</a>
+                <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" class="nav-link text-white font-semibold">Survey</a>
+                <a href="#" class="nav-link text-white font-semibold">Setjen</a>
+                <a href="#" class="nav-link text-white font-semibold">Bimas Islam</a>
+            </div>
         </nav>
-        <div class="flex flex-col items-center text-center">
-            <h1 class="text-white text-4xl md:text-6xl font-black italic drop-shadow-2xl">
-                PORTAL SATU DATA
-            </h1>
-            <marquee class="mt-4 text-yellow-300 font-bold w-full max-w-lg">
-                Selamat Datang di Portal Satu Data Kemenag Kabupaten Konawe...
-            </marquee>
-        </div>
         <div class="mt-auto py-6">
             <div class="glass-effect p-4 text-white text-center">
                 <p class="text-sm">Jumlah Pengunjung:</p>
@@ -123,13 +117,6 @@
                 </div>
             </div>
         </div>
-        <div class="min-h-screen bg-black bg-opacity-50">
-        <nav class="flex overflow-x-auto whitespace-nowrap space-x-6 p-4 no-scrollbar bg-white bg-opacity-10">
-            <a href="#" class="nav-link text-white">Beranda</a>
-            <a href="#" class="nav-link text-white">Survey</a>
-            <a href="#" class="nav-link text-white">Setjen</a>
-            <a href="#" class="nav-link text-white">Bimas Islam</a>
-        </nav>
         <div class="flex flex-col items-center justify-center mt-10"></div>
         <nav class="bg-white px-10 py-3 flex items-center justify-between shadow-xl z-50 sticky top-0 border-b-4 border-yellow-400">
             <div class="flex items-center space-x-3">
@@ -281,16 +268,28 @@
             <footer class="py-12 px-12 text-white/100">
                 <div class="flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest uppercase">
                     <div>© 2026 Kantor Kementerian Agama Kabupaten Konawe</div>
-                    <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
-                        <span>Pengunjung Hari ini: <b class="text-green-400">4</b></span>
-                        <span>Total Pengunjung: <b class="text-green-400">121</b></span>
-                        <span id="realtime-clock" class="text-white"></span>
+                        <div class="mt-auto py-6">
+                            <div class="glass-effect p-4 text-white text-center">
+                                <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
+                                    <span>Pengunjung Hari ini: <b class="text-green-400">4</b></span>
+                                    <span>Total Pengunjung: <b class="text-green-400">121</b></span>
+                                    <span id="realtime-clock" class="text-white"></span>
+                                    <div id="visitor-count" class="text-2xl font-mono font-bold text-green-400">
+                                        <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonaweSatuData&style=0007&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter" border="0" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+    
+                </div>    
+    
             </footer>
+    
         </main>
-        </div>
+    
     </div>
+    
     <script>
         function updateClock() {
             const now = new Date();
