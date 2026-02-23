@@ -8,26 +8,27 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body, html { 
-           height: 100%; 
-            margin: 0; 
-            overflow: hidden; 
+        <div class="bg-portal flex flex-col items-center"></div>
+            margin: 0;
+            padding: 0;    
+            overflow-x: hidden; 
         }
         
         .bg-portal {
             background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
-                          url('https://konawe.kemenag.go.id/media/photos/673d49819adee.png');
-            background-size: contain;
-            background-position: center 0%;
-            background-repeat: no-repeat;
-            height: 100vh;
+                              url('https://konawe.kemenag.go.id/media/photos/673d49819adee.png');
+            background-size: cover; /* Gunakan cover agar penuh di layar HP */
+            background-position: center;
+            min-height: 100vh;
             width: 100%;
         }
-
+     
         .glass-effect {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(sardux10px);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        border-radius: 2.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px); /* Perbaikan typo */
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 2.5rem;
+        
         }
 
         .nav-link:hover {
