@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Satu Data Kemenag Konawe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+        }
+        
+        /* Background Utama dengan Gambar dari Repo Anda */
+        .bg-portal {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                              url(https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        /* Navigasi Mobile Scrollable */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .nav-link {
+            transition: all 0.3s ease;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: #fbbf24;
+            border-bottom: 2px solid #fbbf24;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-fade { animation: fadeIn 0.8s ease-out forwards; }
+    </style>
+</head>
+<body>
+
+    <div class="bg-portal">
+        <header class="w-full bg-black bg-opacity-40 p-4 flex items-center justify-between sticky top-0 z-50 backdrop-blur-sm">
+            <div class="flex items-center space-x-3">
+                <img src="https://konawe.kemenag.go.id/media/photos/673d49819adee.png" class="h-10 w-auto" alt="Logo Kemenag">
+                <div class="flex flex-col text-white">
+                    <span class="text-xs font-bold leading-none tracking-wider uppercase">Kementerian Agama</span>
+                    <span class="text-[10px] opacity-80 uppercase tracking-widest">Kabupaten Konawe</span>
+                </div>
+            </div>
+            <button class="bg-green-600 hover:bg-green-700 text-white px-5 py-1.5 rounded-full text-xs font-bold transition-all shadow-lg active:scale-95">
+                <i class="fas fa-sign-in-alt mr-1"></i> LOGIN
+            </button>
+        </header>
+
+        <nav class="w-full flex overflow-x-auto whitespace-nowrap space-x-6 p-4 no-scrollbar border-b border-white border-opacity-10 bg-black bg-opacity-20">
+            <a href="#" class="nav-link text-white text-sm font-medium">BERANDA</a>
+            <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" target="_blank" class="nav-link text-white text-sm font-medium">SURVEY IKM</a>
+            <a href="#" class="nav-link text-white text-sm font-medium">SETJEN</a>
+            <a href="#" class="nav-link text-white text-sm font-medium">BIMAS ISLAM</a>
+            <a href="#" class="nav-link text-white text-sm font-medium">PENMAD</a>
+            <a href="#" class="nav-link text-white text-sm font-medium">PAI</a>
+            <a href="#" class="nav-link text-white text-sm font-medium">PHU</a>
+        </nav>
+
+        <main class="flex-grow flex flex-col items-center justify-center px-6 text-center animate-fade">
+            <h1 class="text-white text-4xl md:text-7xl font-black italic tracking-tighter drop-shadow-2xl">
+                PORTAL <span class="text-yellow-400">SATU DATA</span>
+            </h1>
+            
+            <div class="w-full max-w-lg mt-4 px-4 py-2 glass-effect rounded-full">
+                <marquee class="text-white font-medium text-sm md:text-base">
+                    Selamat Datang di Portal Satu Data Kantor Kementerian Agama Kabupaten Konawe - Melayani dengan Ikhlas Beramal.
+                </marquee>
+            </div>
+
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-md">
+                <button class="glass-effect hover:bg-white hover:bg-opacity-20 text-white font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center space-x-3 group">
+                    <i class="fas fa-database text-yellow-400 group-hover:scale-110 transition-transform"></i>
+                    <span>E-LAYANAN DATA</span>
+                </button>
+                <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" target="_blank" class="glass-effect hover:bg-white hover:bg-opacity-20 text-white font-bold py-4 px-6 rounded-2xl transition-all flex items-center justify-center space-x-3 group text-center">
+                    <i class="fas fa-bullhorn text-red-400 group-hover:scale-110 transition-transform"></i>
+                    <span>PENGADUAN LAYANAN</span>
+                </a>
+            </div>
+        </main>
+
+        <footer class="w-full p-6 mt-auto">
+            <div class="max-w-xs mx-auto glass-effect rounded-3xl p-4 text-center">
+                <p class="text-white text-[10px] uppercase tracking-widest mb-2 opacity-70 font-bold">Statistik Pengunjung</p>
+                <div class="flex justify-center">
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonaweSatuData&style=0005&nbdigits=6&type=page&initCount=0" title="Visitor Counter" Alt="Web Counter" border="0" />
+                </div>
+                <p class="text-white text-[9px] mt-2 opacity-50">&copy; 2026 Kemenag Kabupaten Konawe</p>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
