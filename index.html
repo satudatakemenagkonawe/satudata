@@ -88,6 +88,40 @@ body, html {
   .menu.active {
     display: flex;
   }
+  .menu-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-link {
+  color: white;
+  cursor: pointer;
+  padding: 10px 0;
+}
+
+.submenu {
+  display: none;
+  flex-direction: column;
+  background: #15803d;
+  margin-left: 15px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.submenu a {
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.submenu a:hover {
+  background: #0f6b45;
+}
+
+.submenu.active {
+  display: flex;
+}
 }
 </style>
 </head>
@@ -105,22 +139,80 @@ body, html {
   <img src="logo.png" class="logo">
 
   <!-- Menu -->
-  <div class="menu">
-    <a href="#">Survey</a>
-    <a href="#">Sekretariat</a>
-    <a href="#">Bimas Islam</a>
-    <a href="#">Bimas Hindu</a>
-    <a href="#">Penmad</a>
-    <a href="#">PAI</a>
-    <a href="#">PD Pontren</a>
-    <a href="#">Zakat Wakaf</a>
+    <div class="menu">
+
+        <!-- SURVEY -->
+        <div class="menu-item">
+
+            <div class="menu-link" onclick="toggleSubmenu(this)">
+                Survey ▾
+            </div>
+
+                <div class="submenu">
+
+                    <!-- FORMULIR SURVEY -->
+                    <div class="menu-item">
+                        <div class="menu-link" onclick="toggleSubmenu(this)">
+                            Formulir Survey ▾
+                        </div>
+
+                        <div class="submenu">
+                            <a href="#">Formulir Survey Persepsi Anti Korupsi</a>
+                            <a href="#">Formulir Survey Kepuasan Masyarakat pada Kankemenag</a>
+                            <a href="#">Formulir Survey Kepuasan Masyarakat pada KUA</a>
+                            <a href="#">Formulir Survey Kerukunan Antar Umat Beragama</a>
+                        </div>
+                    </div>
+
+                    <!-- HASIL SURVEY -->
+                    <div class="menu-item">
+                        <div class="menu-link" onclick="toggleSubmenu(this)">
+                            Hasil Survey ▾
+                        </div>
+
+                        <div class="submenu">
+                            <a href="#">Hasil Survey Persepsi Anti Korupsi</a>
+                            <a href="#">Hasil Survey Kepuasan Masyarakat pada Kankemenag</a>
+                            <a href="#">Hasil Survey Kepuasan Masyarakat pada KUA</a>
+                            <a href="#">Hasil Survey Kerukunan Antar Umat Beragama</a>
+                        </div>
+                    </div>
+        
+            <div class="menu-link" onclick="toggleSubmenu(this)">
+                Sekretariat ▾
+            </div>
+                <div class="submenu">
+                    <a href="#">Data Pegawai</a>
+                    <a href="#">Data Indeks Profesional ASN</a>
+                    <a href="#">Target Indikator Kinerja dan Realisasi</a>
+                    <a href="#">Kinerja Anggaran dan Realisasi</a>
+                    <a href="#">Rencana Strategis 2025-2029</a>
+                    <a href="#">Data Lainnya</a>
+
+                </div>
+  </div>    
+
+    </div>
   </div>
+
+</div>
+
+  <a href="#">Sekretariat</a>
+  <a href="#">Bimas Islam</a>
+
+</div>
 
 </div>
 <script>
 function toggleMenu() {
   document.querySelector(".menu").classList.toggle("active");
   document.querySelector(".hamburger").classList.toggle("active");
+}
+
+function toggleSubmenu(element) {
+  element.classList.toggle("active");
+  const submenu = element.nextElementSibling;
+  submenu.classList.toggle("active");
 }
 </script>
 </body>
