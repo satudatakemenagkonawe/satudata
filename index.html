@@ -8,13 +8,14 @@
 <style>
 body {
   margin: 0;
-  font-family: Arialn, Helvetica, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: #000000;
+  overflow-x: hidden; /* Mencegah layar geser kanan-kiri */
 }
 
 .bg-portal {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-               url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+                    url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -22,86 +23,55 @@ body {
   width: 100%;
 }
 
+/* Glass Effect yang lebih halus untuk HP */
 .glass-effect {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  border: 10px solid rgba(255, 255, 255, 0.2);
-  border-radius: 2.5rem;
-}
-
-.nav-link:hover {
-  color: hsl(135, 93%, 16%);
-  border-bottom: 2px solid #dff153;
-}
-.dropdown-menu {
-  display: none;
-  position: relative;
-  top: 100%;
-  left: 0;
-  background: white;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-  border-top: 3px solid #15803d;
-  z-index: 100;
-}
-
-.nav-item:hover > .dropdown-menu {
-  display: block;
-  animation: fadeIn 0.3s;
-}
-
-.group:hover > .dropdown-menu { display: block; }
-.sub-group:hover > .sub-dropdown-menu { display: block; }
-.nav-item { transition: all 0.3s ease-in-out; }
-
-.dropdown-item:hover > .submenu {
-  display: block;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media (min-width: 768px) {
-.navbar-menu {
-  display: none !important;
-.hamburger {
-  display: block;
-  }
- }
-.container {
-  width: 100%;
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Diperkecil dari 10px */
+  border-radius: 1.5rem;
   padding: 20px;
-  }
-}
-.hero-buttons:active {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 16px;
-}
-
-.hero-container {
-  width: 100% !important;
-  max-width: 1200px;
-  padding: 16px !important;
 }
 
 /* HEADER */
 .header {
   background: #0f6b45;
-  padding: 15px;
+  padding: 10px 20px;
   display: flex;
   align-items: center;
-  gap: 15px;
+  justify-content: space-between; /* Agar logo kiri, hamburger kanan */
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .logo {
-  height: 40px;
+  height: 35px;
 }
 
-/* HAMBURGER */
+/* NAVIGATION DESKTOP (Disembunyikan di HP) */
+.nav-desktop {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .nav-desktop {
+    display: flex;
+    gap: 20px;
+  }
+  .hamburger {
+    display: none !important; /* Sembunyikan hamburger di laptop */
+  }
+}
+
+/* HAMBURGER (Hanya muncul di HP) */
 .hamburger {
   width: 30px;
   cursor: pointer;
@@ -112,39 +82,28 @@ body {
 
 .hamburger span {
   height: 3px;
+  width: 100%;
   background: white;
   border-radius: 2px;
   transition: 0.3s;
 }
 
-.hamburger.active span:nth-child(1) {
-  transform: rotate(45deg) translate(5px,5px);
-}
-
-.hamburger.active span:nth-child(2) {
-  opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-  transform: rotate(-45deg) translate(6px,-6px);
-}
-
-/* SIDEBAR */
+/* SIDEBAR MOBILE */
 .sidebar {
   position: fixed;
   top: 0;
-  left: -280px;
+  right: -280px; /* Diubah ke kanan agar lebih natural bagi jempol */
   width: 260px;
   height: 100%;
   background: #111;
-  padding: 20px;
+  padding: 60px 20px 20px 20px;
   transition: 0.3s;
   overflow-y: auto;
   z-index: 1001;
 }
 
 .sidebar.active {
-  left: 0;
+  right: 0;
 }
 
 /* OVERLAY */
@@ -154,60 +113,37 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.5);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
+  background: rgba(0,0,0,0.7);
+  display: none;
   z-index: 1000;
 }
 
 .overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* MENU */
-.menu-item {
-  margin-bottom: 10px;
-}
-
-.menu-link {
-  color: white;
-  padding: 10px;
   display: block;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.2s;
 }
 
-.menu-link:hover {
-  background: #15803d;
+/* HERO BUTTONS MOBILE RESPONSIVE */
+.hero-buttons {
+  display: flex;
+  flex-direction: column; /* Berderet ke bawah di HP */
+  gap: 15px;
+  width: 100%;
 }
 
-.submenu {
-  display: none;
-  position: relative;
-  top: 0;
-  left: 100%;
-  min-width: 200px;
-  background: white;
-  box-shadow: 8px 8px 16px rgba(0,0,0,0.1);
+@media (min-width: 768px) {
+  .hero-buttons {
+    flex-direction: row; /* Berderet ke samping di Laptop */
+    justify-content: center;
   }
+}
 
-.submenu a {
-  display: block;
-  color: #ddd;
-  padding: 8px 0;
-  font-size: 14px;
+.btn-custom {
+  padding: 15px 25px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-align: center;
   text-decoration: none;
-}
-
-.submenu a:hover {
-  color: white;
-}
-
-.submenu.active {
-  display: block;
+  transition: 0.3s;
 }
 </style>
 </head>
@@ -409,21 +345,19 @@ body {
 </footer>
 
 <script>
-function toggleMenu() {
-  document.getElementById("sidebar").classList.toggle("active");
-  document.getElementById("overlay").classList.toggle("active");
-  document.getElementById("hamburger").classList.toggle("active");
-}
+  const hamburger = document.querySelector('.hamburger');
+  const sidebar = document.querySelector('.sidebar');
+  const overlay = document.querySelector('.overlay');
 
-function closeMenu() {
-  document.getElementById("sidebar").classList.remove("active");
-  document.getElementById("overlay").classList.remove("active");
-  document.getElementById("hamburger").classList.remove("active");
-}
+  hamburger.addEventListener('click', () => {
+    sidebar.classList.toggle('active');
+    overlay.classList.toggle('active');
+  });
 
-function toggleSubmenu(element) {
-  element.nextElementSibling.classList.toggle("active");
-}
+  overlay.addEventListener('click', () => {
+    sidebar.classList.remove('active');
+    overlay.classList.remove('active');
+  });
 </script>
 
 </body>
