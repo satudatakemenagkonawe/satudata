@@ -12,6 +12,82 @@ body {
   background: #000;
 }
 
+.bg-portal {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+               url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 10px solid rgba(255, 255, 255, 0.2);
+  border-radius: 2.5rem;
+}
+
+.nav-link:hover {
+  color: hsl(135, 93%, 16%);
+  border-bottom: 2px solid #dff153;
+}
+.dropdown-menu {
+  display: none;
+  position: relative;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: white;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  border-top: 3px solid #15803d;
+  z-index: 100;
+}
+
+.nav-item:hover > .dropdown-menu {
+  display: block;
+  animation: fadeIn 0.3s;
+}
+
+.group:hover > .dropdown-menu { display: block; }
+.sub-group:hover > .sub-dropdown-menu { display: block; }
+.nav-item { transition: all 0.3s ease-in-out; }
+
+.dropdown-item:hover > .submenu {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (min-width: 768px) {
+.navbar-menu {
+  display: none !important;
+.hamburger {
+  display: block;
+  }
+ }
+.container {
+  width: 100%;
+  padding: 20px;
+  }
+}
+.hero-buttons:active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.hero-container {
+  width: 100% !important;
+  max-width: 1200px;
+  padding: 16px !important;
+}
+
 /* HEADER */
 .header {
   background: #0f6b45;
@@ -111,10 +187,13 @@ body {
 
 .submenu {
   display: none;
-  margin-left: 10px;
-  border-left: 2px solid #15803d;
-  padding-left: 10px;
-}
+  position: relative;
+  top: 0;
+  left: 100%;
+  min-width: 200px;
+  background: white;
+  box-shadow: 8px 8px 16px rgba(0,0,0,0.1);
+  }
 
 .submenu a {
   display: block;
@@ -214,7 +293,115 @@ body {
       <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing">Data Ormas Keagamaan</a>
     </div>
   </div>
+
+  <!-- Penmad -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Penmad ▾</div>
+
+    <div class="submenu">
+      <a href="#">Data Madrasah</a>
+      <a href="#">Data Guru</a>
+      <a href="#">Data Siswa</a>
+      <a href="#">Data Sarpras</a>
+    </div>
+  </div>
+
+  <!-- PAI -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">PAI ▾</div>
+
+    <div class="submenu">
+      <a href="#">Data Sekolah</a>
+      <a href="#">Data Guru PAI</a>
+      <a href="#">Data Siswa</a>
+      <a href="#">Data Sarpras PAI</a>
+    </div>
+  </div>
+
+  <!-- PD Pontren -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">PD Pontren ▾</div>
+
+    <div class="submenu">
+      <a href="#">Data Lembaga</a>
+      <a href="#">Data Guru</a>
+      <a href="#">Data Santri</a>
+      <a href="#">Data Sarpras</a>
+    </div>
+  </div>
+
+  <!-- Penye. Hindu -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Penye. Hindu ▾</div>
+
+    <div class="submenu">
+      <a href="#">Data Pura</a>
+      <a href="#">Data Sekolah Hindu</a>
+      <a href="#">Data Guru</a>
+      <a href="#">Data Siswa</a>
+      <a href="#">Data Sarpras</a>
+    </div>
+  </div>
+
+  <!-- Penye. Syari'ah -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Penye. Syari'ah ▾</div>
+
+    <div class="submenu">
+      <a href="#">Data Tanah Wakaf</a>
+      <a href="#">Data ZIS</a>
+      <a href="#">Data Sertifikasi Halal</a>
+    </div>
+  </div>
 </div>
+
+        <main class="flex-1 flex flex-col items-center justify-center text-center px-10">
+            <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
+                <h3 class="text-white text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
+                <h1 class="text-white text-3xl md:text-4xl font-black leading-tight">
+                    Portal Satu Data<br>
+                    <span class="text-green-400">Kementerian Agama</span><br>
+                    <span class="text-2xl md:text-2xl">Kabupaten Konawe</span>
+                </h1>
+                
+                <div class="mt-12 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+    
+                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> E-Layanan
+                      </button>
+                     </a>
+                    
+                    <a href="https://script.google.com/macros/s/AKfycbzsK3eWMJS0RZq8RQYyC1Bq1QozMsk2pgCgKed7eqJXSqyMpWNRUMJ1z_I0ycEIENwZzg/exec" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> Hasil E-Layanan
+                      </button>
+                     </a>
+
+                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe/halaman-muka" target="_blank" class="no-underline">
+                        <button class="bg-green-600 text-white px-8 py-4 rounded-2xl font-black hover:bg-green-700 transition shadow-2xl border-b-8 border-yellow-400 text-sm tracking-widest flex items-center">
+                            <i class="fas fa-comments mr-2"></i> Pengaduan Layanan
+                        </button>
+                    </a>
+                </div>
+                <div class="mt-8 w-full max-w-4xl mx-auto">
+                    <marquee class="text-yellow-400 font-bold text-lg md:text-xl tracking-widest drop-shadow-md" scrollamount="7">
+                        Selamat Datang di Portal Satu Data Kementerian Agama Kabupaten Konawe
+                    </marquee>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-12 px-12 text-white/100">
+            <div class="flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest">
+                <div>© 2026 Kantor Kementerian Agama Kabupaten Konawe</div>
+                <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
+                    <span>Pengunjung Hari ini: <b class="text-green-400">4</b></span>
+                    <span>Total Pengunjung: <b class="text-green-400">121</b></span>
+                    <span id="realtime-clock" class="text-white"></span>
+                </div>
+            </div>
+        </footer>
 
 <script>
 function toggleMenu() {
