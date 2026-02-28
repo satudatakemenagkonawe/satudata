@@ -59,7 +59,21 @@
         display: flex;
         }
         }
+        .hamburger.active span:nth-child(1) {
+        transform: rotate(45deg) translate(5px,5px);
+        }
 
+        .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px,-6px);
+        }
+        function toggleMenu() {
+        document.querySelector(".menu").classList.toggle("active");
+        document.querySelector(".hamburger").classList.toggle("active");
+        }
         <script>
             function toggleMenu() {
             document.querySelector(".menu").classList.toggle("active");
@@ -166,11 +180,6 @@
             <span>PD Pontren</span>
             <span>Zakat Wakaf</span>
         </div>
-
-        <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="logo">
-        <span class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
-            Kemenag<br>Konawe
-        </span>
         
         <div class="menu">
         <!-- menu desktop Anda -->
