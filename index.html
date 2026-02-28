@@ -1,51 +1,356 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
-  <base target="_top">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Satu Data Kemenag Konawe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        padding: 10px 20px;
+        background: #0f6b45; /* hijau Anda */
+        }
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-    }
+        .logo {
+        height: 50px;
+        }
 
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: auto;
-      padding: 15px;
-    }
-
-    .row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .card {
-      flex: 1 1 300px;
-      background: #f4f4f4;
-      padding: 20px;
-      border-radius: 10px;
-    }
-
-    @media (max-width: 768px) {
-      .row {
+        /* Hamburger default hidden (desktop) */
+        .hamburger {
+        display: none;
         flex-direction: column;
-      }
-    }
-  </style>
-</head>
-<body>
+        cursor: pointer;
+        gap: 5px;
+        }
 
-<div class="container">
-  <div class="row">
-    <div class="card">Konten 1</div>
-    <div class="card">Konten 2</div>
-    <div class="card">Konten 3</div>
-  </div>
-</div>
+        .hamburger span {
+        width: 28px;
+        height: 3px;
+        background: #000;
+        border-radius: 2px;
+        }
+        body, html { 
+           height: 100%; 
+            margin: 0; 
+        }
+        
+        @media (max-width: 768px) {
+
+        .hamburger {
+        display: flex;
+        }
+
+        .menu {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #0f6b45;
+        flex-direction: column;
+        padding: 15px;
+        }
+
+        .menu.active {
+        display: flex;
+        }
+        }
+
+        <script>
+            function toggleMenu() {
+            document.querySelector(".menu").classList.toggle("active");
+            }
+        </script>
+
+        .bg-portal {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                          url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .glass-effect {
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 10px solid rgba(255, 255, 255, 0.2);
+        border-radius: 2.5rem;
+        }
+
+        .nav-link:hover {
+            color: hsl(135, 93%, 16%);
+            border-bottom: 2px solid #dff153;
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: relative;
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            background: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            border-top: 3px solid #15803d;
+            z-index: 100;
+        }
+
+        .nav-item:hover > .dropdown-menu {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+
+        .group:hover > .dropdown-menu { display: block; }
+        .sub-group:hover > .sub-dropdown-menu { display: block; }
+        .nav-item { transition: all 0.3s ease-in-out; }
+
+        .submenu {
+            display: none;
+            position: relative;
+            top: 0;
+            left: 100%;
+            min-width: 200px;
+            background: white;
+            box-shadow: 8px 8px 16px rgba(0,0,0,0.1);
+        }
+
+        .dropdown-item:hover > .submenu {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (min-width: 768px) {
+        .navbar-menu {
+        display: none !important;
+        .hamburger {
+        display: block;
+        }
+        }
+        .container {
+        width: 100%;
+        padding: 20px;
+        }
+        }
+        .hero-buttons:active {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        }
+
+        .hero-container {
+        width: 100% !important;
+        max-width: 1200px;
+        padding: 16px !important;
+        }
+    </style>
+</head>
+<body class="font-manrope">
+    <div class="header">
+        <div class="hamburger" onclick="toggleMenu()">
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Sekretariat</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Bimas Islam</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Bimas Hindu</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Penmad</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            PAI</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            PD Pontren</span>
+            <span>class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Zakat Wakaf</span>
+        </div>
+
+        <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="logo">
+        <span class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+            Kemenag<br>Konawe
+        </span>
+        
+        <div class="menu">
+        <!-- menu desktop Anda -->
+         <div class="bg-portal flex flex-col">
+        
+    <nav class="bg-white px-10 py-3 flex items-center justify-between shadow-xl z-50 sticky top-0 border-b-4 border-yellow-400">
+        <div class="flex items-center space-x-3">
+                <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" 
+                    alt="Logo Kemenag" 
+                    class="h-12 w-auto object-contain">
+                <span class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
+                    Kemenag<br>Konawe
+                </span>
+            </div>
+
+    <div class="flex items-center space-x-10 text-[14px] font-manrope font-bold items-center gap-1">
+        <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec" class="nav-item hover:text-green-600">Beranda</a>
+        
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600">Survey <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <div class="sub-group relative">
+                    <a href="#" class="px-4 py-2 hover:bg-green-50 hover:text-green-700 flex justify-between items-center">Formulir Survey <i class="fas fa-chevron-right text-[7px]"></i></a>
+                    <div class="sub-dropdown-menu hidden absolute left-full top-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxA_zq3m1wH8MamFVID_VYU8N0cxGoubdqedlrasNpJVTGaA/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Form Survey Persepsi Anti Korupsi</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGHpMaOa8HjQ1GFS18i43v3GI3LG1PggNut1K3O2I-_tsI0Q/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Form Survey Kepuasan Masyarakat pada Kankemenag</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScaiGjOXUWPflvIIIzHxGi3ZXki4A1GAwqEVJ_2JcdhDbem_A/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Form Survey Kepuasan Masyarakat pada KUA</a>
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScFCew7PkbZhn3aJDKdXOoMa80mnIlIOsBa8MwZ-JnK-sC_fg/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Form Survey Kerukunan Antar Umat Beragama</a>
+                    </div>
+                </div>
+                <div class="sub-group relative border-t border-slate-50">
+                    <a href="#" class="px-4 py-2 hover:bg-green-50 hover:text-green-700 flex justify-between items-center">Hasil Survey <i class="fas fa-chevron-right text-[7px]"></i></a>
+                    <div class="sub-dropdown-menu hidden absolute left-full top-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                        <a href="https://script.google.com/macros/s/AKfycbxHlq6CtF0R7uPkunqrg8LdmbCuz9IJItSawGQ4g4EZ2N31quuzKc0er-MMPk3u7KqGQg/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Hasil Survey Persepsi Anti Korupsi</a>
+                        <a href="https://script.google.com/macros/s/AKfycbw668kJaQhjGjG1LVxbhugJA0HOr6tTH9cGS6IWESo35SJm_RcspWnnQ9UH1xMJeIMp/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Hasil Survey Kepuasan Masyarakat pada Kankemenag</a>
+                        <a href="https://script.google.com/macros/s/AKfycbx48BbpISHXlCnbrK_OS6ugFfjvI-A7N1lgo0YdEu01IEH0b_-xjpA5RhvnsMLR-VJ0/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Hasil Survey Kepuasan Masyarakat pada KUA</a>
+                        <a href="https://script.google.com/macros/s/AKfycbxqypBI3QulUTGGbikZQxDq21Iqb3hdxlqj1r268cqLwjWo2KF0faRdQ1vDkRWPga9uxg/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Hasil Survey Kerukunan Antar Umat Beragama</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600">Setjen <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <a href="https://docs.google.com/spreadsheets/d/1HkB6SlGvVpUXkuS6EHujtAtpdUHLLt3HwB_Xwy9ohn8/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 border-b border-slate-50">Data Pegawai</a>
+                <a href="https://docs.google.com/spreadsheets/d/1Z5jtivIkdryDWZ6o9OG-flykCCk5IPdXo8eoGagOMTc/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Indeks Profesional ASN</a>
+                <a href="https://docs.google.com/spreadsheets/d/1dRsp72zLed__ir-Lnfg8VOVP9ll77v6OK7VSvxZWOWo/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Target Indikator Kinerja dan Realisasi</a>
+                <a href="https://docs.google.com/spreadsheets/d/1GkW7aWqwqQLTtZ6uPFwyl2Y7UUVAr7XL0Iy_t5M9ggw/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Kinerja Anggaran dan Realisasi</a>
+                <a href="https://docs.google.com/spreadsheets/d/15g6nL_ikMH7HudhI7n6mBD-t9luoMk7zEga8wlRjTkI/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Rencana Strategis</a>
+                <a href="https://script.google.com/macros/s/AKfycbxlRuo7Fc6TGMEYS10-nqpTnbUOs6Tel2k9MUl3uCs8Hj4zWBWbcb3fHCBUrZrvbIaX/exec" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Laporan WFA</a>
+                <a href="https://docs.google.com/spreadsheets/d/1h-JAcFi-2QHgjtWJjFLMfVHlIGD1qSmoRwaH_FygdMQ/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Lainnya</a>
+            </div>
+        </div>
+
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600">Bimas Islam <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <a href="https://docs.google.com/spreadsheets/d/1JThmGDfUgiWoJSV8KlTUgrigaLhueMHdBPSLJ9tzyAE/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 border-b border-slate-50">Data Umat Beragama</a>
+                <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data KUA</a>
+                <a href="https://docs.google.com/spreadsheets/d/1NZbziT_ygYFg7Ph_q7AQa4szuOXKD4fb3dxqR_VdV_0/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Masjid dan Mushola</a>
+                <a href="https://docs.google.com/spreadsheets/d/1z6d99whmvN1ITQryD9TVzR26VC5NAGbut5NYFZIVgZo/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Perpustakaan Masjid dan Mushola</a>
+                <a href="https://docs.google.com/spreadsheets/d/1ALI-4maP-SHY3Xz7ERaDnUenhY1WFFi0ggztg0q5iZg/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Majelis Taklim</a>
+                <a href="https://docs.google.com/spreadsheets/d/1EXNn0OSk4qGPmS3IOYgvVuATpJIxFrDCsBWaO3o0qsw/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data TPQ</a>
+                <a href="https://docs.google.com/spreadsheets/d/1uUHX9lRNHX58d1yZkPqWNWjn-_be1K-TAXf1X6LJRs0/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Nikah/Rujuk</a>
+                <a href="https://docs.google.com/spreadsheets/d/1EXTDJGE4J94Ljtbe1sCmSEX7ohL1OEBw3P4EoIfleOg/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Penyuluh Agama</a>
+                <a href="https://docs.google.com/spreadsheets/d/17p0BaLH6mrZ9EQww9EJ89fJ9PXiertiHCWp-nBrhK40/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Ormas Keagamaan</a>
+            </div>
+        </div>
+
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600">Penmad <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <a href="LINK_DRIVE_PENMAD_1" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 border-b border-slate-50">Data Madrasah</a>
+                <a href="LINK_DRIVE_PENMAD_2" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Siswa/Guru</a>
+            </div>
+        </div>
+
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600 uppercase">PAI <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute left-0 mt-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <a href="LINK_DRIVE_PAI_1" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 border-b border-slate-50">Guru PAI</a>
+                <a href="LINK_DRIVE_PAI_2" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Sekolah</a>
+            </div>
+        </div>
+
+        <div class="group relative py-4">
+            <button class="flex items-center hover:text-green-600">Lainnya <i class="fas fa-chevron-down ml-1 text-[7px]"></i></button>
+            <div class="dropdown-menu hidden absolute right-0 mt-0 w-52 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                <div class="sub-group relative">
+                    <a href="#" class="px-4 py-2 hover:bg-green-50 hover:text-green-700 flex justify-between items-center">PD Pontren <i class="fas fa-chevron-right text-[7px]"></i></a>
+                    <div class="sub-dropdown-menu hidden absolute right-full top-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                        <a href="https://docs.google.com/spreadsheets/d/1ecoe2tuyT8xOowARuHVlQUyy4noD579UcCgA3aRDAho/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Data PD Pondok</a>
+                    </div>
+                </div>
+                <div class="sub-group relative">
+                    <a href="#" class="px-4 py-2 hover:bg-green-50 hover:text-green-700 flex justify-between items-center">Bimas Hindu <i class="fas fa-chevron-right text-[7px]"></i></a>
+                    <div class="sub-dropdown-menu hidden absolute right-full top-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                        <a href="https://docs.google.com/document/d/1TFwL0iMAe8M9zqQrS2syEHfc1IkBM01P/edit?usp=sharing&ouid=104505680491195975098&rtpof=true&sd=true" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Data Umat Hindu, Pura, dan Pemangku</a>
+                    </div>
+                </div>
+                <div class="sub-group relative">
+                    <a href="#" class="px-4 py-2 hover:bg-green-50 hover:text-green-700 flex justify-between items-center">Zakat Wakaf <i class="fas fa-chevron-right text-[7px]"></i></a>
+                    <div class="sub-dropdown-menu hidden absolute right-full top-0 w-48 bg-white shadow-2xl rounded-lg border border-slate-100 py-2">
+                        <a href="https://docs.google.com/spreadsheets/d/1pjR3nB0JdLYZMap4rb-c5S1D4vE4WGaG7O43JValoqY/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Data Zakat dan Wakaf</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+        <main class="flex-1 flex flex-col items-center justify-center text-center px-10">
+            <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
+                <h3 class="text-white text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
+                <h1 class="text-white text-3xl md:text-4xl font-black leading-tight">
+                    Portal Satu Data<br>
+                    <span class="text-green-400">Kementerian Agama</span><br>
+                    <span class="text-2xl md:text-2xl">Kabupaten Konawe</span>
+                </h1>
+                
+                <div class="mt-12 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+    
+                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> E-Layanan
+                      </button>
+                     </a>
+                    
+                    <a href="https://script.google.com/macros/s/AKfycbzsK3eWMJS0RZq8RQYyC1Bq1QozMsk2pgCgKed7eqJXSqyMpWNRUMJ1z_I0ycEIENwZzg/exec" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> Hasil E-Layanan
+                      </button>
+                     </a>
+
+                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe/halaman-muka" target="_blank" class="no-underline">
+                        <button class="bg-green-600 text-white px-8 py-4 rounded-2xl font-black hover:bg-green-700 transition shadow-2xl border-b-8 border-yellow-400 text-sm tracking-widest flex items-center">
+                            <i class="fas fa-comments mr-2"></i> Pengaduan Layanan
+                        </button>
+                    </a>
+                </div>
+                <div class="mt-8 w-full max-w-4xl mx-auto">
+                    <marquee class="text-yellow-400 font-bold text-lg md:text-xl tracking-widest drop-shadow-md" scrollamount="7">
+                        Selamat Datang di Portal Satu Data Kementerian Agama Kabupaten Konawe
+                    </marquee>
+                </div>
+            </div>
+        </main>
+
+        <footer class="py-12 px-12 text-white/100">
+            <div class="flex flex-col md:flex-row justify-between items-center text-[10px] tracking-widest">
+                <div>© 2026 Kantor Kementerian Agama Kabupaten Konawe</div>
+                <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
+                    <span>Pengunjung Hari ini: <b class="text-green-400">4</b></span>
+                    <span>Total Pengunjung: <b class="text-green-400">121</b></span>
+                    <span id="realtime-clock" class="text-white"></span>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString('id-ID', { hour12: false });
+            document.getElementById('realtime-clock').innerText = `| ${time} WITA`;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+        </div>
+
+    </div>
 
 </body>
 </html>
