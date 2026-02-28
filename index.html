@@ -1,77 +1,47 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Satu Data Kemenag Konawe</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-body, html {
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal Satu Data - Mobile</title>
+
+<style>
+body {
   margin: 0;
-  height: 100%;
+  font-family: Arial, sans-serif;
+  background: #000;
 }
 
 /* HEADER */
 .header {
+  background: #0f6b45;
+  padding: 15px;
   display: flex;
   align-items: center;
   gap: 15px;
-  padding: 10px 20px;
-  background: #0f6b45;
-  position: relative;
+  color: white;
 }
 
 .logo {
-  height: 50px;
-}
-
-.bg-portal {
-background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-     url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
-background-size: cover;
-background-position: center;
-background-attachment: fixed;
-min-height: 100vh;
-width: 100%;
-}
-
-.glass-effect {
-background: rgba(255, 255, 255, 0.2);
-backdrop-filter: blur(10px);
-border: 10px solid rgba(255, 255, 255, 0.2);
-border-radius: 2.5rem;
-}
-
-/* MENU DESKTOP */
-.menu {
-  display: flex;
-  gap: 20px;
-  margin-left: auto;
-}
-
-.menu a {
-  color: white;
-  text-decoration: none;
+  height: 40px;
 }
 
 /* HAMBURGER */
 .hamburger {
-  display: none;
+  width: 30px;
+  cursor: pointer;
+  display: flex;
   flex-direction: column;
   gap: 5px;
-  cursor: pointer;
 }
 
 .hamburger span {
-  width: 28px;
   height: 3px;
   background: white;
   border-radius: 2px;
   transition: 0.3s;
 }
 
-/* Animasi X */
 .hamburger.active span:nth-child(1) {
   transform: rotate(45deg) translate(5px,5px);
 }
@@ -84,159 +54,185 @@ border-radius: 2.5rem;
   transform: rotate(-45deg) translate(6px,-6px);
 }
 
-/* MODE HP */
-@media (max-width: 768px) {
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -280px;
+  width: 260px;
+  height: 100%;
+  background: #111;
+  padding: 20px;
+  transition: 0.3s;
+  overflow-y: auto;
+  z-index: 1001;
+}
 
-  .hamburger {
-    display: flex;
-  }
+.sidebar.active {
+  left: 0;
+}
 
-  .menu {
-    display: none;
-    position: absolute;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background: #0f6b45;
-    flex-direction: column;
-    padding: 15px;
-  }
+/* OVERLAY */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 1000;
+}
 
-  .menu.active {
-    display: flex;
-  }
-  .menu-item {
-  display: flex;
-  flex-direction: column;
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* MENU */
+.menu-item {
+  margin-bottom: 10px;
 }
 
 .menu-link {
   color: white;
+  padding: 10px;
+  display: block;
   cursor: pointer;
-  padding: 10px 0;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.menu-link:hover {
+  background: #15803d;
 }
 
 .submenu {
   display: none;
-  flex-direction: column;
-  background: #15803d;
-  margin-left: 15px;
-  border-radius: 5px;
-  overflow: hidden;
+  margin-left: 10px;
+  border-left: 2px solid #15803d;
+  padding-left: 10px;
 }
 
 .submenu a {
-  padding: 10px;
-  color: white;
-  text-decoration: none;
+  display: block;
+  color: #ddd;
+  padding: 8px 0;
   font-size: 14px;
+  text-decoration: none;
 }
 
 .submenu a:hover {
-  background: #0f6b45;
+  color: white;
 }
 
 .submenu.active {
-  display: flex;
-}
+  display: block;
 }
 </style>
 </head>
-<body class="font-manrope">
-    <div class="header">
 
-        <!-- Hamburger -->
-        <div class="hamburger" onclick="toggleMenu()">
-            <span>Beranda</span>
-            <span>Survey</span>
-            <span>Setjen</span>
+<body>
+
+<div class="header">
+  <div class="hamburger" onclick="toggleMenu()" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="logo">
+  <strong>Kemenag<br>Konawe</strong>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<div class="sidebar" id="sidebar">
+
+  <div class="menu-item">
+    <a class="menu-link" href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec">Beranda</a>
+  </div>
+
+  <!-- SURVEY -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Survey ▾</div>
+
+    <div class="submenu">
+
+      <!-- FORMULIR -->
+      <div class="menu-item">
+        <div class="menu-link" onclick="toggleSubmenu(this)">Formulir Survey ▾</div>
+
+        <div class="submenu">
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxA_zq3m1wH8MamFVID_VYU8N0cxGoubdqedlrasNpJVTGaA/viewform">Indeks SPAK</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGHpMaOa8HjQ1GFS18i43v3GI3LG1PggNut1K3O2I-_tsI0Q/viewform">IKM pada Kankemenag</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScaiGjOXUWPflvIIIzHxGi3ZXki4A1GAwqEVJ_2JcdhDbem_A/viewform">IKM pada KUA</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLScFCew7PkbZhn3aJDKdXOoMa80mnIlIOsBa8MwZ-JnK-sC_fg/viewform">Indeks KAUB</a>
         </div>
+      </div>
 
-        <!-- Logo -->
-        <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="logo">
-            <span class="flex font-manrope font-bold items-center gap-1 text-[15px] leading-tight md:block">
-                Kemenag<br>Konawe
-            </span>
-        
-            <!-- Menu -->
-        <div class="menu">
-            <div class="menu-item">
-                <!-- Beranda -->
-                <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec">Beranda</a>
-            </div>
-            <!-- Survey -->
-        <div class="menu-item">
+      <!-- HASIL -->
+      <div class="menu-item">
+        <div class="menu-link" onclick="toggleSubmenu(this)">Hasil Survey ▾</div>
 
-            <div class="menu-link" onclick="toggleSubmenu(this)">
-                Survey ▾
-            </div>
-
-                <div class="submenu">
-
-                    <!-- FORMULIR SURVEY -->
-                    <div class="menu-item">
-                        <div class="menu-link" onclick="toggleSubmenu(this)">
-                            Formulir Survey ▾
-                        </div>
-
-                        <div class="submenu">
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxA_zq3m1wH8MamFVID_VYU8N0cxGoubdqedlrasNpJVTGaA/viewform">Formulir Survey Persepsi Anti Korupsi</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGHpMaOa8HjQ1GFS18i43v3GI3LG1PggNut1K3O2I-_tsI0Q/viewform">Formulir Survey Kepuasan Masyarakat pada Kankemenag</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScaiGjOXUWPflvIIIzHxGi3ZXki4A1GAwqEVJ_2JcdhDbem_A/viewform">Formulir Survey Kepuasan Masyarakat pada KUA</a>
-                            <a href="https://docs.google.com/forms/d/e/1FAIpQLScFCew7PkbZhn3aJDKdXOoMa80mnIlIOsBa8MwZ-JnK-sC_fg/viewform">Formulir Survey Kerukunan Antar Umat Beragama</a>
-                        </div>
-                    </div>
-
-                    <!-- HASIL SURVEY -->
-                    <div class="menu-item">
-                        <div class="menu-link" onclick="toggleSubmenu(this)">
-                            Hasil Survey ▾
-                        </div>
-
-                        <div class="submenu">
-                            <a href="https://script.google.com/macros/s/AKfycbxHlq6CtF0R7uPkunqrg8LdmbCuz9IJItSawGQ4g4EZ2N31quuzKc0er-MMPk3u7KqGQg/exec">Hasil Survey Persepsi Anti Korupsi</a>
-                            <a href="https://script.google.com/macros/s/AKfycbw668kJaQhjGjG1LVxbhugJA0HOr6tTH9cGS6IWESo35SJm_RcspWnnQ9UH1xMJeIMp/exec">Hasil Survey Kepuasan Masyarakat pada Kankemenag</a>
-                            <a href="https://script.google.com/macros/s/AKfycbx48BbpISHXlCnbrK_OS6ugFfjvI-A7N1lgo0YdEu01IEH0b_-xjpA5RhvnsMLR-VJ0/exec">Hasil Survey Kepuasan Masyarakat pada KUA</a>
-                            <a href="https://script.google.com/macros/s/AKfycbxqypBI3QulUTGGbikZQxDq21Iqb3hdxlqj1r268cqLwjWo2KF0faRdQ1vDkRWPga9uxg/exec">Hasil Survey Kerukunan Antar Umat Beragama</a>
-                        </div>
-                    </div>
-        <!-- Sekretariat -->
-        <div class="menu-item">
-            <div class="menu-link" onclick="toggleSubmenu(this)">
-                Sekretariat ▾
-            </div>
-                <div class="submenu">
-                    <a href="#">Data Pegawai</a>
-                    <a href="#">Data Indeks Profesional ASN</a>
-                    <a href="#">Target Indikator Kinerja dan Realisasi</a>
-                    <a href="#">Kinerja Anggaran dan Realisasi</a>
-                    <a href="#">Rencana Strategis 2025-2029</a>
-                    <a href="#">Data Lainnya</a>
-
-                </div>
-        </div>    
+        <div class="submenu">
+          <a href="https://script.google.com/macros/s/AKfycbxHlq6CtF0R7uPkunqrg8LdmbCuz9IJItSawGQ4g4EZ2N31quuzKc0er-MMPk3u7KqGQg/exec">Indeks SPAK</a>
+          <a href="https://script.google.com/macros/s/AKfycbw668kJaQhjGjG1LVxbhugJA0HOr6tTH9cGS6IWESo35SJm_RcspWnnQ9UH1xMJeIMp/exec">IKM Kemenag</a>
+          <a href="https://script.google.com/macros/s/AKfycbx48BbpISHXlCnbrK_OS6ugFfjvI-A7N1lgo0YdEu01IEH0b_-xjpA5RhvnsMLR-VJ0/exec">IKM KUA</a>
+          <a href="https://script.google.com/macros/s/AKfycbxqypBI3QulUTGGbikZQxDq21Iqb3hdxlqj1r268cqLwjWo2KF0faRdQ1vDkRWPga9uxg/exec">Indeks KAUB</a>
+        </div>
+      </div>
 
     </div>
   </div>
 
+  <!-- SEKRETARIAT -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Sekretariat ▾</div>
+
+    <div class="submenu">
+      <a href="https://docs.google.com/spreadsheets/d/1HkB6SlGvVpUXkuS6EHujtAtpdUHLLt3HwB_Xwy9ohn8/edit?usp=sharing">Data Pegawai</a>
+      <a href="https://docs.google.com/spreadsheets/d/1Z5jtivIkdryDWZ6o9OG-flykCCk5IPdXo8eoGagOMTc/edit?usp=sharing">Indeks Profesional ASN</a>
+      <a href="https://docs.google.com/spreadsheets/d/1dRsp72zLed__ir-Lnfg8VOVP9ll77v6OK7VSvxZWOWo/edit?usp=sharing">Target Kinerja & Realisasi</a>
+      <a href="https://docs.google.com/spreadsheets/d/1GkW7aWqwqQLTtZ6uPFwyl2Y7UUVAr7XL0Iy_t5M9ggw/edit?usp=sharing">Kinerja Anggaran</a>
+      <a href="https://docs.google.com/spreadsheets/d/15g6nL_ikMH7HudhI7n6mBD-t9luoMk7zEga8wlRjTkI/edit?usp=sharing">Renstra 2025-2029</a>
+    </div>
+  </div>
+
+  <!-- Bimas Islam -->
+  <div class="menu-item">
+    <div class="menu-link" onclick="toggleSubmenu(this)">Bimas Islam ▾</div>
+
+    <div class="submenu">
+      <a href="https://docs.google.com/spreadsheets/d/1JThmGDfUgiWoJSV8KlTUgrigaLhueMHdBPSLJ9tzyAE/edit?usp=sharing">Data Umat Beragama</a>
+      <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing">Data KUA</a>
+      <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing">Data Nikah & Rujuk</a>
+      <a href="https://docs.google.com/spreadsheets/d/1dRsp72zLed__ir-Lnfg8VOVP9ll77v6OK7VSvxZWOWo/edit?usp=sharing">Data Masjid & Mushola</a>
+      <a href="https://docs.google.com/spreadsheets/d/1GkW7aWqwqQLTtZ6uPFwyl2Y7UUVAr7XL0Iy_t5M9ggw/edit?usp=sharing">Data Majelis Taklim</a>
+      <a href="https://docs.google.com/spreadsheets/d/15g6nL_ikMH7HudhI7n6mBD-t9luoMk7zEga8wlRjTkI/edit?usp=sharing">Data TPQ</a>
+      <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing">Data Ormas Keagamaan</a>
+    </div>
+  </div>
 </div>
 
-    <a href="#">Bimas Islam</a>
-
-</div>
-
-</div>
 <script>
 function toggleMenu() {
-  document.querySelector(".menu").classList.toggle("active");
-  document.querySelector(".hamburger").classList.toggle("active");
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+  document.getElementById("hamburger").classList.toggle("active");
+}
+
+function closeMenu() {
+  document.getElementById("sidebar").classList.remove("active");
+  document.getElementById("overlay").classList.remove("active");
+  document.getElementById("hamburger").classList.remove("active");
 }
 
 function toggleSubmenu(element) {
-  element.classList.toggle("active");
-  const submenu = element.nextElementSibling;
-  submenu.classList.toggle("active");
+  element.nextElementSibling.classList.toggle("active");
 }
 </script>
+
 </body>
 </html>
