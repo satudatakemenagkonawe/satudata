@@ -11,14 +11,24 @@
         /* Pastikan Sidebar tidak muncul sebelum diklik */
         .sidebar {
             position: fixed;
-            top: 0;
-            left: -300px; /* Sembunyikan ke kiri */
-            width: 280px;
-            height: 100%;
-            background: #0f6b45; /* Warna hijau Kemenag */
+            top: 12%;
+            left: -280px; /* Sembunyikan ke kiri */
+            width: 260px;
+            height: 100vh;
+            background: #afc6bc; /* Warna hijau Kemenag */
             transition: 0.3s;
-            z-index: 2000; /* Paling atas */
-            padding: 20px;
+            z-index: 1100; /* Paling atas */
+            overflow-y: auto; /* Memungkinkan scroll vertikal */
+            overflow-x: hidden; /* Mencegah geser kanan-kiri yang tidak perlu */
+            padding-bottom: 50px;
+        }
+        /* Opsional: Mempercantik tampilan scrollbar agar tidak merusak desain */
+        .sidebar::-webkit-scrollbar {
+            width: 5px;
+        }
+        .sidebar::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
         }
 
         .sidebar.active {
@@ -132,10 +142,10 @@
                                 Formulir Survey ▾<i class="fas fa-chevron-down scale-75"></i>
                             </div>
                             <div class="submenu hidden flex flex-col gap-1">
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Anti Korupsi</a>
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• IKM Kankemenag</a>
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• IKM KUA</a>
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Kerukunan Umat</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSdxA_zq3m1wH8MamFVID_VYU8N0cxGoubdqedlrasNpJVTGaA/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Persepsi Anti Korupsi</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSeGHpMaOa8HjQ1GFS18i43v3GI3LG1PggNut1K3O2I-_tsI0Q/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">IKM pada Kankemenag</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScaiGjOXUWPflvIIIzHxGi3ZXki4A1GAwqEVJ_2JcdhDbem_A/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">IKM pada KUA</a>
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLScFCew7PkbZhn3aJDKdXOoMa80mnIlIOsBa8MwZ-JnK-sC_fg/viewform" target="_blank" class="block px-4 py-2 hover:bg-green-600 hover:text-white">Indeks KAUB</a>
                             </div>
                         </div>
                         <div class="menu-item">
@@ -143,8 +153,10 @@
                                 Hasil Survey ▾<i class="fas fa-chevron-down scale-75"></i>
                             </div>
                             <div class="submenu hidden flex flex-col gap-1">
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Hasil Anti Korupsi</a>
-                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Hasil IKM</a>
+                                <a href="https://script.google.com/macros/s/AKfycbxHlq6CtF0R7uPkunqrg8LdmbCuz9IJItSawGQ4g4EZ2N31quuzKc0er-MMPk3u7KqGQg/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">Indeks SPAK</a>
+                                <a href="https://script.google.com/macros/s/AKfycbw668kJaQhjGjG1LVxbhugJA0HOr6tTH9cGS6IWESo35SJm_RcspWnnQ9UH1xMJeIMp/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">IKM Kankemenag</a>
+                                <a href="https://script.google.com/macros/s/AKfycbx48BbpISHXlCnbrK_OS6ugFfjvI-A7N1lgo0YdEu01IEH0b_-xjpA5RhvnsMLR-VJ0/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">IKM KUA</a>
+                                <a href="https://script.google.com/macros/s/AKfycbxqypBI3QulUTGGbikZQxDq21Iqb3hdxlqj1r268cqLwjWo2KF0faRdQ1vDkRWPga9uxg/exec" target="_blank" class="block px-4 py-2 hover:bg-blue-600 hover:text-white">IKM KAUB</a>
                             </div>
                         </div>
                     </div>
@@ -154,9 +166,68 @@
                             <i class="fas fa-chevron-down text-[10px]"></i>
                         </div>
                         <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
-                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Data Pegawai</a>
-                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Indeks Profesional</a>
-                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Renstra 2025-2029</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1HkB6SlGvVpUXkuS6EHujtAtpdUHLLt3HwB_Xwy9ohn8/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Pegawai</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1Z5jtivIkdryDWZ6o9OG-flykCCk5IPdXo8eoGagOMTc/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data IP ASN</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1dRsp72zLed__ir-Lnfg8VOVP9ll77v6OK7VSvxZWOWo/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Target Kinerja</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1GkW7aWqwqQLTtZ6uPFwyl2Y7UUVAr7XL0Iy_t5M9ggw/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Realisasi Anggaran</a>
+                            <a href="https://docs.google.com/spreadsheets/d/15g6nL_ikMH7HudhI7n6mBD-t9luoMk7zEga8wlRjTkI/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Renstra 2025-2029</a>
+                            <a href="https://script.google.com/macros/s/AKfycbxlRuo7Fc6TGMEYS10-nqpTnbUOs6Tel2k9MUl3uCs8Hj4zWBWbcb3fHCBUrZrvbIaX/exec" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Laporan WFA</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1h-JAcFi-2QHgjtWJjFLMfVHlIGD1qSmoRwaH_FygdMQ/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Lainnya</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Bimas Islam ▾</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="https://docs.google.com/spreadsheets/d/1JThmGDfUgiWoJSV8KlTUgrigaLhueMHdBPSLJ9tzyAE/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Umat Beragama</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1ZQOTYJk1emi47te8O-9sZMgTs4GWZhtx8sJ5LfIdIhg/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">KUA</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1NZbziT_ygYFg7Ph_q7AQa4szuOXKD4fb3dxqR_VdV_0/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Masjid & Mushola</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1z6d99whmvN1ITQryD9TVzR26VC5NAGbut5NYFZIVgZo/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Perpus. Masjid</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1ALI-4maP-SHY3Xz7ERaDnUenhY1WFFi0ggztg0q5iZg/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Majelis Taklim</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1EXNn0OSk4qGPmS3IOYgvVuATpJIxFrDCsBWaO3o0qsw/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">TPQ</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1uUHX9lRNHX58d1yZkPqWNWjn-_be1K-TAXf1X6LJRs0/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Nikah/Rujuk</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1EXTDJGE4J94Ljtbe1sCmSEX7ohL1OEBw3P4EoIfleOg/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Penyuluh Agama</a>
+                            <a href="https://docs.google.com/spreadsheets/d/17p0BaLH6mrZ9EQww9EJ89fJ9PXiertiHCWp-nBrhK40/edit?usp=sharing" class="block py-2 px-4 text-sm opacity-80 hover:opacity-100">Ormas Keagamaan</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Penmad ▾</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Madrasah</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Guru</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Siswa</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Sarpras</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> PD Pontren ▾</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data PD Pontren</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Guru</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Santri</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Sarpras</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Penye. Hindu ▾</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Pura, dll</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Sekolah</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data guru</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Siswa</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Sarpras</a>
+                            <a href="#" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Penyuluh</a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +236,7 @@
 
         <main class="flex-1 flex flex-col items-center justify-center text-center px-8">
             <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
-                <h3 class="text-blue-800 text-2xl font-bold tracking-[100%] mb-4">Selamat Datang</h3>
+                <h3 class="text-yellow-400 text-2xl font-bold tracking-[100%] mb-4">Selamat Datang</h3>
                 <h1 class="text-white text-2xl font-bold tracking-[100%] mb-4">
                     Di Portal Satu Data<br>
                     <span class="text-yellow-400 text-2xl font-bold tracking-[100%] mb-4">Kementerian Agama</span><br>
