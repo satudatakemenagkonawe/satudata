@@ -37,12 +37,11 @@
         }
 
         .hamburger span {
-            display: left: -100%;
+            display: block;
             height: 3px;
             width: 100%;
-            background-color: white; /* Warna garis tiga */
+            background-color: black; /* Warna hitam */
             border-radius: 2px;
-            transition: all 0.3s ease;
         }
 
         /* Header agar Logo dan Hamburger sejajar rapi */
@@ -72,12 +71,11 @@
         .bg-portal {
             min-height: 100vh; 
             width: 100%;
-            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
-            background-size: cover; /* Menjamin gambar menutupi seluruh layar */
-            background-position: center center; /* Gambar tetap di tengah */
-            background-repeat: no-repeat;
-            display: flex;
-            flex-direction: column;
+            background-image: url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
         }
 
         .glass-effect {
