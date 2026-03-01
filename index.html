@@ -313,13 +313,21 @@
         </main>
     
         <footer class="py-12 px-12 text-white/100">
-            <div class="flex flex-col md:flex-row justify-between items-center text-[16px] tracking-widest">
-                <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
-                    <span>Pengunjung Hari ini: <b class="text-green-400">4</b></span>
-                    <span>Total Pengunjung: <b class="text-green-400">121</b></span>
-                    <span id="realtime-clock" class="text-white"></span>
-                </div>
-                <div>© 2026 Kantor Kementerian Agama Kabupaten Konawe</div>
+            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 mt-4 md:mt-0 font-bold items-center">
+                <span>Pengunjung Hari ini: 
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonawe_Daily&style=0005&nbdigits=3&type=ip&initCount=0" title="Daily Visitors" Alt="Visit Counter" border="0" class="inline-block h-4" />
+                </span>
+
+                <span>Total Pengunjung: 
+                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonawe_Total&style=0005&nbdigits=5&type=page&initCount=100" title="Total Visitors" Alt="Visit Counter" border="0" class="inline-block h-4" />
+                </span>
+
+                <span id="realtime-clock" class="text-yellow-400"></span>
+            </div>
+            <div class="text-center px-4">    
+                <p class="text-white text-[12px] md:text-xs opacity-80 tracking-wider">
+                    © 2026 Kantor Kementerian Agama Kab. Konawe
+                </p>
             </div>
         </footer>
     </div>
@@ -352,6 +360,24 @@
             document.getElementById('sidebar').classList.toggle('active');
             document.querySelector('.overlay').classList.toggle('active');
         }
+    </script>
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit', 
+                hour12: false,
+                timeZone: 'Asia/Makassar' // Mengatur waktu ke WITA (Konawe)
+            };
+            const formatter = new Intl.DateTimeFormat('id-ID', options);
+                document.getElementById('realtime-clock').innerText = formatter.format(now) + ' WITA';
+        }
+
+        // Jalankan setiap 1 detik
+        setInterval(updateClock, 1000);
+        updateClock(); // Jalankan langsung saat halaman dibuka
     </script>
 </body>
 </html>
