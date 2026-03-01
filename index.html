@@ -1,170 +1,114 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portal Satu Data - Mobile</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Satu Data Kemenag Konawe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hamburger {
+            width: 30px;
+            height: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            z-index: 1100; /* Pastikan di atas elemen lain */
+        }
 
-<style>
-<body>
-    <div class="overlay"></div>
+        .hamburger span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            background-color: white; /* Warna garis tiga */
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
 
-    <div class="bg-portal flex flex-col">
+        /* Tambahan agar Header berjejer ke samping */
+        .header {
+            display: flex;
+            align-items: center;
+        }
         
-        <header class="header">
-            <div class="logo-container">
-                <img src="https://konawe.kemenag.go.id/media/photos/673d49819adee.png" alt="Logo" class="logo">
-                <div class="flex flex-col">
-                    <span class="text-[10px] md:text-xs font-bold leading-tight">KEMENTERIAN AGAMA</span>
-                    <span class="text-[9px] md:text-[10px] tracking-widest uppercase opacity-80">Kabupaten Konawe</span>
-                </div>
+        /* Pastikan layar bisa di-scroll di HP */
+        body, html { 
+            margin: 0; 
+            padding: 0; 
+            min-height: 100vh;
+            background-color: #000;
+        }
+        
+        .bg-portal {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                              url('Gambar_Kantor_Konawe.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            width: 100%;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-portal flex flex-col items-center">
+        <header class="header flex items-center p-4 bg-[#0f6b45]">
+            <div class="hamburger mr-4" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </div>
 
-            <nav class="nav-desktop">
-                <a href="#" class="nav-link text-white text-sm no-underline font-bold">BERANDA</a>
-                <a href="#" class="nav-link text-white text-sm no-underline font-bold">LAYANAN</a>
-                <a href="#" class="nav-link text-white text-sm no-underline font-bold">KONTAK</a>
-            </nav>
-
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="flex items-center">
+                <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="h-10 w-auto" alt="Logo Kemenag">
+                <div class="ml-3 text-white">
+                    <h2 class="text-[10px] font-bold leading-none">KEMENTERIAN AGAMA</h2>
+                    <p class="text-[9px] opacity-80 uppercase tracking-widest">Kabupaten Konawe</p>
+                </div>
             </div>
         </header>
 
-        <aside class="sidebar">
-    <div class="mb-8 border-b border-white border-opacity-10 pb-4">
-        <h2 class="text-green-400 font-black text-lg tracking-widest">MENU UTAMA</h2>
-        <p class="text-white text-[10px] opacity-50">Portal Satu Data Kemenag Konawe</p>
-    </div>
-
-    <div class="menu-item">
-        <a href="#" class="menu-link flex items-center">
-            <i class="fas fa-home mr-3 text-sm w-5"></i> Beranda
-        </a>
-    </div>
-
-    <div class="menu-item">
-        <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" target="_blank" class="menu-link flex items-center">
-            <i class="fas fa-poll-h mr-3 text-sm w-5 text-yellow-400"></i> Survey IKM
-        </a>
-    </div>
-
-    <hr class="my-4 border-white border-opacity-10">
-
-    <p class="text-[9px] text-white opacity-40 font-bold tracking-[0.2em] mb-3 uppercase">Data Per Seksi</p>
-
-    <div class="menu-item group">
-        <div class="menu-link flex justify-between items-center" onclick="toggleSub(this)">
-            <span><i class="fas fa-users-cog mr-3 text-sm w-5 text-blue-400"></i> Setjen</span>
-            <i class="fas fa-chevron-down text-[10px] transition-transform"></i>
-        </div>
-        <div class="hidden pl-8 mt-2 flex flex-col gap-2 border-l border-white border-opacity-10 ml-2">
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Kepegawaian</a>
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Keuangan</a>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-link flex justify-between items-center" onclick="toggleSub(this)">
-            <span><i class="fas fa-mosque mr-3 text-sm w-5 text-green-400"></i> Bimas Islam</span>
-            <i class="fas fa-chevron-down text-[10px] transition-transform"></i>
-        </div>
-        <div class="hidden pl-8 mt-2 flex flex-col gap-2 border-l border-white border-opacity-10 ml-2">
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Nikah & Rujuk</a>
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Masjid & Mushalla</a>
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Penyuluh</a>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <div class="menu-link flex justify-between items-center" onclick="toggleSub(this)">
-            <span><i class="fas fa-school mr-3 text-sm w-5 text-orange-400"></i> Penmad</span>
-            <i class="fas fa-chevron-down text-[10px] transition-transform"></i>
-        </div>
-        <div class="hidden pl-8 mt-2 flex flex-col gap-2 border-l border-white border-opacity-10 ml-2">
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Madrasah</a>
-            <a href="#" class="text-white text-xs opacity-70 hover:opacity-100 py-1">Data Guru & Siswa</a>
-        </div>
-    </div>
-
-    <div class="menu-item">
-        <a href="#" class="menu-link flex items-center">
-            <i class="fas fa-book-reader mr-3 text-sm w-5 text-purple-400"></i> Seksi PAI
-        </a>
-    </div>
-
-    <div class="menu-item">
-        <a href="#" class="menu-link flex items-center">
-            <i class="fas fa-kaaba mr-3 text-sm w-5 text-emerald-400"></i> Seksi PHU
-        </a>
-    </div>
-
-    <hr class="my-4 border-white border-opacity-10">
-
-    <div class="mt-4">
-        <button class="w-full bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl font-black tracking-widest text-xs transition-all shadow-lg shadow-green-900/20">
-            <i class="fas fa-lock mr-2"></i> LOGIN ADMIN
-        </button>
-    </div>
-</aside>
-
-        <main class="flex-1 flex flex-col items-center justify-center p-6 md:p-12 text-center">
-            <div class="glass-effect w-full max-w-4xl animate-fade-in">
-                <h3 class="text-white text-sm md:text-xl tracking-[0.3em] mb-4 uppercase opacity-80">Selamat Datang</h3>
-                <h1 class="text-white text-3xl md:text-6xl font-black leading-tight mb-8">
-                    PORTAL <span class="text-green-400">SATU DATA</span><br>
-                    <span class="text-xl md:text-2xl font-light tracking-widest">KEMENAG KONAWE</span>
+        <main class="flex-1 flex flex-col items-center justify-center p-6 mt-10">
+            <div class="glass-effect p-8 text-center w-full max-w-sm">
+                <h1 class="text-white text-2xl font-black italic leading-tight">
+                    PORTAL <span class="text-green-400">SATU DATA</span>
                 </h1>
-
-                <div class="hero-buttons">
-                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" target="_blank" class="btn-custom bg-white text-green-900 shadow-xl border-b-4 border-yellow-400 flex-1 hover:scale-105 transition-transform">
-                        <i class="fas fa-globe mr-2"></i> E-LAYANAN
-                    </a>
-                    <a href="#" class="btn-custom bg-green-600 text-white shadow-xl border-b-4 border-yellow-400 flex-1 hover:scale-105 transition-transform">
-                        <i class="fas fa-database mr-2"></i> DATA STATISTIK
-                    </a>
-                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" target="_blank" class="btn-custom bg-red-600 text-white shadow-xl border-b-4 border-yellow-400 flex-1 hover:scale-105 transition-transform">
-                        <i class="fas fa-comments mr-2"></i> PENGADUAN
-                    </a>
-                </div>
-
-                <div class="mt-10 border-t border-white border-opacity-10 pt-6">
-                    <marquee class="text-yellow-400 font-bold text-sm md:text-lg italic" scrollamount="6">
-                        Portal Satu Data Kantor Kementerian Agama Kabupaten Konawe - Menyajikan Data Akurat untuk Pelayanan Prima
-                    </marquee>
+                <p class="text-white text-[10px] mt-2 opacity-80 uppercase tracking-widest">Kementerian Agama Kabupaten Konawe</p>
+                
+                <div class="mt-8 flex flex-col space-y-4">
+                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" class="bg-white text-green-900 py-3 rounded-xl font-bold text-xs shadow-xl border-b-4 border-yellow-400">e-layanan</a>
+                    <a href="https://script.google.com/macros/s/AKfycbzsK3eWMJS0RZq8RQYyC1Bq1QozMsk2pgCgKed7eqJXSqyMpWNRUMJ1z_I0ycEIENwZzg/exec" class="bg-white text-green-900 py-3 rounded-xl font-bold text-xs shadow-xl border-b-4 border-yellow-400">Hasil e-layanan</a>
+                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" class="bg-green-600 text-white py-3 rounded-xl font-bold text-xs shadow-xl border-b-4 border-yellow-400">Pengaduan</a>
                 </div>
             </div>
         </main>
 
-        <footer class="p-6 bg-black bg-opacity-40 backdrop-blur-sm">
-            <div class="flex flex-col md:flex-row justify-between items-center text-[10px] md:text-xs text-white opacity-70 tracking-widest text-center gap-4">
-                <div>© 2026 PRANATA KOMPUTER KEMENAG KONAWE</div>
-                <div class="flex space-x-6 font-bold">
-                    <span>PENGUNJUNG: <b class="text-green-400">121</b></span>
-                    <span id="realtime-clock" class="text-yellow-400"></span>
-                </div>
+        <footer class="mt-10 mb-6">
+            <div class="glass-effect px-6 py-3 text-center">
+                <p class="text-white text-[9px] font-bold opacity-70 mb-1 uppercase">Total Pengunjung</p>
+                <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonaweSatuData&style=0005&nbdigits=6&type=page&initCount=0" class="h-5 mx-auto">
             </div>
         </footer>
     </div>
 
-<script>
-    // Fungsi untuk buka-tutup Sub-Menu di Sidebar
-function toggleSub(element) {
-    const submenu = element.nextElementSibling;
-    const icon = element.querySelector('.fa-chevron-down');
-    
-    // Toggle class hidden pada submenu
-    submenu.classList.toggle('hidden');
-    
-    // Putar icon panah
-    if (submenu.classList.contains('hidden')) {
-        icon.style.transform = 'rotate(0deg)';
-    } else {
-        icon.style.transform = 'rotate(180deg)';
-    }
-}
+    <script>
+        const hamburger = document.getElementById('hamburger-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+
+        hamburger.addEventListener('click', () => {
+        // Logika untuk memunculkan sidebar yang sudah Anda buat sebelumnya
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
