@@ -48,21 +48,29 @@
             background-repeat: no-repeat;
             display: flex;
             flex-direction: column;
-}
+        }
 
         .glass-effect {
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 2.5rem;
+            border: 10px solid rgba(255, 255, 255, 0.4);
+            border-radius: 1.5rem;
+        }
+
+        .submenu {
+            display: none;
+        }
+
+        .submenu.active {
+            display: flex;
         }
     </style>
 </head>
 <body>
     <div class="bg-portal min-h-screen flex flex-col">
         <header class="header flex items-center p-4 bg-[#0f6b45]">
-            <div class="hamburger mr-4" id="hamburger-menu">
+            <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -78,7 +86,7 @@
         </header>
 
         <main class="flex-1 flex items-center justify-center p-4">
-            <div class="glass-effect p-8 text-center w-full max-w-sm">
+            <div class="glass-effect p-4 text-center w-full max-w-sm">
                 <h1 class="text-white text-2xl font-black italic leading-tight">
                     PORTAL <span class="text-green-400">SATU DATA</span>
                 </h1>
@@ -91,7 +99,70 @@
                 </div>
             </div>
         </main>
+    
+        <div class="menu">
 
+            <!-- BERANDA -->
+            <div class="menu-item">
+                <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec">
+                    Beranda
+                </a>
+            </div>
+
+            <!-- SURVEY -->
+            <div class="menu-item">
+                <div class="menu-link" onclick="toggleSubmenu(this)">
+                    Survey ▾
+                </div>
+
+                <div class="submenu">
+
+                    <!-- FORMULIR -->
+                    <div class="menu-item">
+                        <div class="menu-link" onclick="toggleSubmenu(this)">
+                            Formulir Survey ▾
+                        </div>
+
+                        <div class="submenu">
+                            <a href="#">Formulir Survey Persepsi Anti Korupsi</a>
+                            <a href="#">Formulir Survey Kepuasan Masyarakat Kankemenag</a>
+                            <a href="#">Formulir Survey Kepuasan Masyarakat KUA</a>
+                            <a href="#">Formulir Survey Kerukunan Antar Umat Beragama</a>
+                        </div>
+                    </div>
+
+                    <!-- HASIL -->
+                    <div class="menu-item">
+                        <div class="menu-link" onclick="toggleSubmenu(this)">
+                            Hasil Survey ▾
+                        </div>
+
+                        <div class="submenu">
+                            <a href="#">Hasil Survey Persepsi Anti Korupsi</a>
+                            <a href="#">Hasil Survey Kepuasan Masyarakat Kankemenag</a>
+                            <a href="#">Hasil Survey Kepuasan Masyarakat KUA</a>
+                            <a href="#">Hasil Survey Kerukunan Antar Umat Beragama</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- SEKRETARIAT -->
+            <div class="menu-item">
+                <div class="menu-link" onclick="toggleSubmenu(this)">
+                    Sekretariat ▾
+                </div>
+
+                    <div class="submenu">
+                        <a href="#">Data Pegawai</a>
+                        <a href="#">Data Indeks Profesional ASN</a>
+                        <a href="#">Target Kinerja & Realisasi</a>
+                        <a href="#">Kinerja Anggaran</a>
+                        <a href="#">Renstra 2025-2029</a>
+                    </div>
+                </div>
+            </div>    
         <footer class="py-12 px-12 text-white/100">
             <div class="flex flex-col md:flex-row justify-between items-center text-[16px] tracking-widest">
                 <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
@@ -105,15 +176,21 @@
     </div>
 
     <script>
-        const hamburger = document.getElementById('hamburger-menu');
-        const sidebar = document.querySelector('.sidebar');
-        const overlay = document.querySelector('.overlay');
+        function toggleMenu() {
+            document.getElementById("sidebar").classList.toggle("active");
+            document.getElementById("overlay").classList.toggle("active");
+            document.getElementById("hamburger").classList.toggle("active");
+        }
 
-        hamburger.addEventListener('click', () => {
-        // Logika untuk memunculkan sidebar yang sudah Anda buat sebelumnya
-        sidebar.classList.toggle('active');
-        overlay.classList.toggle('active');
-        });
+        function closeMenu() {
+            document.getElementById("sidebar").classList.remove("active");
+            document.getElementById("overlay").classList.remove("active");
+            document.getElementById("hamburger").classList.remove("active");
+        }
+
+        function toggleSubmenu(element) {
+            element.nextElementSibling.classList.toggle("active");
+        }
     </script>
 </body>
 </html>
