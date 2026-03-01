@@ -165,17 +165,39 @@
             </div>
         </aside>
 
-        <main class="flex-1 flex items-center justify-center p-4">
-            <div class="glass-effect p-4 text-center w-full max-w-sm">
-                <h1 class="text-white text-2xl font-black italic leading-tight">
-                    PORTAL <span class="text-green-400">SATU DATA</span>
+        <main class="flex-1 flex flex-col items-center justify-center text-center px-10">
+            <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
+                <h3 class="text-white text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
+                <h1 class="text-white text-3xl md:text-4xl font-black leading-tight">
+                    Portal Satu Data<br>
+                    <span class="text-green-400">Kementerian Agama</span><br>
+                    <span class="text-2xl md:text-2xl">Kabupaten Konawe</span>
                 </h1>
-                <p class="text-white text-[12px] mt-2 opacity-80 font-bold uppercase tracking-widest">Kementerian Agama Kabupaten Konawe</p>
                 
-                <div class="mt-8 flex flex-col space-y-4">
-                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" class="bg-white text-black py-3 rounded-xl font-bold text-x12 shadow-xl border-b-4 border-yellow-400">E-Layanan</a>
-                    <a href="https://script.google.com/macros/s/AKfycbzsK3eWMJS0RZq8RQYyC1Bq1QozMsk2pgCgKed7eqJXSqyMpWNRUMJ1z_I0ycEIENwZzg/exec" class="bg-white text-black py-3 rounded-xl font-bold text-x12 shadow-xl border-b-4 border-yellow-400">Hasil E-Layanan</a>
-                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe" class="bg-green-600 text-white py-3 rounded-xl font-bold text-x12 shadow-xl border-b-4 border-yellow-400">Pengaduan Layanan</a>
+                <div class="mt-12 flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-6">
+    
+                    <a href="https://forms.gle/hHyMDNiQGNHzpYdh6" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> E-Layanan
+                      </button>
+                     </a>
+                    
+                    <a href="https://script.google.com/macros/s/AKfycbzsK3eWMJS0RZq8RQYyC1Bq1QozMsk2pgCgKed7eqJXSqyMpWNRUMJ1z_I0ycEIENwZzg/exec" target="_blank" class="no-underline">
+                      <button class="bg-white text-green-900 px-8 py-4 rounded-2xl font-black hover:bg-green-50 transition shadow-2xl text-sm border-b-8 border-yellow-400 tracking-widest flex items-center">
+                          <i class="fas fa-globe mr-2"></i> Hasil E-Layanan
+                      </button>
+                     </a>
+
+                    <a href="https://sites.google.com/view/layananpengaduankemenagkonawe/halaman-muka" target="_blank" class="no-underline">
+                        <button class="bg-green-600 text-white px-8 py-4 rounded-2xl font-black hover:bg-green-700 transition shadow-2xl border-b-8 border-yellow-400 text-sm tracking-widest flex items-center">
+                            <i class="fas fa-comments mr-2"></i> Pengaduan Layanan
+                        </button>
+                    </a>
+                </div>
+                <div class="mt-8 w-full max-w-4xl mx-auto">
+                    <marquee class="text-yellow-400 font-bold text-lg md:text-xl tracking-widest drop-shadow-md" scrollamount="7">
+                        Selamat Datang di Portal Satu Data Kementerian Agama Kabupaten Konawe
+                    </marquee>
                 </div>
             </div>
         </main>
