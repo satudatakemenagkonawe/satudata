@@ -5,19 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portal Satu Data Kemenag Konawe</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
     <style>
+        
+        /* Pastikan Sidebar tidak muncul sebelum diklik */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -300px; /* Sembunyikan ke kiri */
+            width: 280px;
+            height: 100%;
+            background: #0f6b45; /* Warna hijau Kemenag */
+            transition: 0.3s;
+            z-index: 2000; /* Paling atas */
+            padding: 20px;
+        }
+
+        .sidebar.active {
+            left: 0; /* Muncul saat aktif */
+        }
         .hamburger {
             width: 30px;
             height: 20px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            cursor: pointer;
-            z-index: 1100; /* Pastikan di atas elemen lain */
+            cursor: pointer !important;
+            pointer-events: auto !important;
+            gap: 5px;
+            z-index: 9999; /* Pastikan di atas elemen lain */
         }
 
         .hamburger span {
-            display: block;
+            display: left: -100%;
             height: 3px;
             width: 100%;
             background-color: white; /* Warna garis tiga */
@@ -25,12 +45,22 @@
             transition: all 0.3s ease;
         }
 
-        /* Tambahan agar Header berjejer ke samping */
+        /* Header agar Logo dan Hamburger sejajar rapi */
         .header {
             display: flex;
             align-items: center;
+            padding: 10px 15px;
+            background: #0f6b45;
+            gap: 15px;
         }
         
+        /* Tombol di HP agar tetap putih terang */
+        .btn-mobile {
+            background-color: #ffffff !important;
+            color: #1a1a1a !important;
+            font-weight: bold;
+        }
+
         /* Pastikan layar bisa di-scroll di HP */
         body, html { 
             margin: 0; 
@@ -67,16 +97,17 @@
         }
     </style>
 </head>
+
 <body>
     <div class="bg-portal min-h-screen flex flex-col">
-        <header class="header flex items-center p-4 bg-[#0f6b45]">
-            <div class="hamburger" onclick="toggleMenu()">
+        <header class="header flex items-center p-4 bg-[#0f6b45] sticky top-0 z-50">
+            <div class="hamburger cursor-pointer z-[1001]" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
                 <span></span>
+    
             </div>
-
-            <div class="flex items-center">
+            <div class="flex items-center ml-4">
                 <img src="https://lh3.googleusercontent.com/u/0/d/1_Ak7I2ZnCU3fm1IMHRcLW2_9kDa9j28e" class="h-10 w-auto" alt="Logo Kemenag">
                 <div class="ml-3 text-white">
                     <h2 class="text-[10px] font-bold leading-none">Kantor Kementerian Agama</h2>
@@ -84,6 +115,55 @@
                 </div>
             </div>
         </header>
+        <aside class="sidebar" id="sidebar">
+            <div class="menu p-4">
+                <div class="menu-item mb-2">
+                    <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec" class="menu-link block py-2 px-4 hover:bg-white/10 rounded-xl transition">
+                        <i class="fas fa-home mr-2 text-xs"></i> Beranda
+                    </a>
+                </div>
+
+                <div class="menu-item mb-2">
+                    <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                        <span><i class="fas fa-poll-h mr-2 text-xs"></i> Survey</span>
+                        <i class="fas fa-chevron-down text-bold-[12px] transition-transform"></i>
+                    </div>
+                    <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6">
+                        <div class="menu-item">
+                            <div class="text-bold-[12px] py-2 opacity-70 cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                                Formulir Survey <i class="fas fa-chevron-down scale-75"></i>
+                            </div>
+                            <div class="submenu hidden flex flex-col gap-1">
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Anti Korupsi</a>
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• IKM Kankemenag</a>
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• IKM KUA</a>
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Kerukunan Umat</a>
+                            </div>
+                        </div>
+                        <div class="menu-item">
+                            <div class="text-bold-[12px] py-2 opacity-70 cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                                Hasil Survey <i class="fas fa-chevron-down scale-75"></i>
+                            </div>
+                            <div class="submenu hidden flex flex-col gap-1">
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Hasil Anti Korupsi</a>
+                                <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Hasil IKM</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Sekretariat</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Data Pegawai</a>
+                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Indeks Profesional</a>
+                            <a href="#" class="py-1 opacity-70 hover:opacity-100">Renstra 2025-2029</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
 
         <main class="flex-1 flex items-center justify-center p-4">
             <div class="glass-effect p-4 text-center w-full max-w-sm">
@@ -100,69 +180,6 @@
             </div>
         </main>
     
-        <div class="menu">
-
-            <!-- BERANDA -->
-            <div class="menu-item">
-                <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec">
-                    Beranda
-                </a>
-            </div>
-
-            <!-- SURVEY -->
-            <div class="menu-item">
-                <div class="menu-link" onclick="toggleSubmenu(this)">
-                    Survey ▾
-                </div>
-
-                <div class="submenu">
-
-                    <!-- FORMULIR -->
-                    <div class="menu-item">
-                        <div class="menu-link" onclick="toggleSubmenu(this)">
-                            Formulir Survey ▾
-                        </div>
-
-                        <div class="submenu">
-                            <a href="#">Formulir Survey Persepsi Anti Korupsi</a>
-                            <a href="#">Formulir Survey Kepuasan Masyarakat Kankemenag</a>
-                            <a href="#">Formulir Survey Kepuasan Masyarakat KUA</a>
-                            <a href="#">Formulir Survey Kerukunan Antar Umat Beragama</a>
-                        </div>
-                    </div>
-
-                    <!-- HASIL -->
-                    <div class="menu-item">
-                        <div class="menu-link" onclick="toggleSubmenu(this)">
-                            Hasil Survey ▾
-                        </div>
-
-                        <div class="submenu">
-                            <a href="#">Hasil Survey Persepsi Anti Korupsi</a>
-                            <a href="#">Hasil Survey Kepuasan Masyarakat Kankemenag</a>
-                            <a href="#">Hasil Survey Kepuasan Masyarakat KUA</a>
-                            <a href="#">Hasil Survey Kerukunan Antar Umat Beragama</a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- SEKRETARIAT -->
-            <div class="menu-item">
-                <div class="menu-link" onclick="toggleSubmenu(this)">
-                    Sekretariat ▾
-                </div>
-
-                    <div class="submenu">
-                        <a href="#">Data Pegawai</a>
-                        <a href="#">Data Indeks Profesional ASN</a>
-                        <a href="#">Target Kinerja & Realisasi</a>
-                        <a href="#">Kinerja Anggaran</a>
-                        <a href="#">Renstra 2025-2029</a>
-                    </div>
-                </div>
-            </div>    
         <footer class="py-12 px-12 text-white/100">
             <div class="flex flex-col md:flex-row justify-between items-center text-[16px] tracking-widest">
                 <div class="flex space-x-8 mt-4 md:mt-0 font-bold">
@@ -177,19 +194,31 @@
 
     <script>
         function toggleMenu() {
-            document.getElementById("sidebar").classList.toggle("active");
-            document.getElementById("overlay").classList.toggle("active");
-            document.getElementById("hamburger").classList.toggle("active");
+            const sidebar = document.getElementById('sidebar');
+            // Menambah atau menghapus class 'active' agar sidebar muncul/sembunyi
+            sidebar.classList.toggle('active');
+            console.log("Menu diklik!"); // Cek di Inspect Element jika tetap tidak jalan
         }
-
-        function closeMenu() {
-            document.getElementById("sidebar").classList.remove("active");
-            document.getElementById("overlay").classList.remove("active");
-            document.getElementById("hamburger").classList.remove("active");
-        }
-
+        // Fungsi untuk buka-tutup Submenu di dalam Sidebar
         function toggleSubmenu(element) {
-            element.nextElementSibling.classList.toggle("active");
+            const submenu = element.nextElementSibling;
+            const icon = element.querySelector('.fa-chevron-down');
+    
+            // Toggle class 'hidden' (muncul/sembunyi)
+            if (submenu) {
+                submenu.classList.toggle('hidden');
+        
+            // Putar icon panah jika ada
+            if (icon) {
+                icon.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+                }
+            }
+        }
+
+        // Fungsi untuk buka-tutup Sidebar Utama (Lambang ☰)
+        function toggleSidebar() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.querySelector('.overlay').classList.toggle('active');
         }
     </script>
 </body>
