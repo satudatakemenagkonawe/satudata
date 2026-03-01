@@ -15,7 +15,7 @@
             left: -280px; /* Sembunyikan ke kiri */
             width: 260px;
             height: 100vh;
-            background: #715ab4; /* Warna hijau Kemenag */
+            background: #7b7393; /* Warna hijau Kemenag */
             transition: 0.3s;
             z-index: 1100; /* Paling atas */
             overflow-y: auto; /* Memungkinkan scroll vertikal */
@@ -79,20 +79,19 @@
         }
         
         .bg-portal {
-            min-height: 100vh; 
-            width: 100%;
-            background-image: url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+                          url('https://raw.githubusercontent.com/satudatakemenagkonawe/satudata/main/Gambar_Kantor_Konawe.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             min-height: 100vh;
+            width: 100%;
         }
 
         .glass-effect {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 10px solid rgba(255, 255, 255, 0.6);
+            border: 10px solid rgba(255, 255, 255, 0.2);
             border-radius: 2.5rem;
         }
 
