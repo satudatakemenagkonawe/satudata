@@ -79,11 +79,11 @@
         }
 
         .glass-effect {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
-            border: 10px solid rgba(255, 255, 255, 0.4);
-            border-radius: 1.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 10px solid rgba(255, 255, 255, 0.6);
+            border-radius: 2.5rem;
         }
 
         .submenu {
@@ -116,20 +116,20 @@
         <aside class="sidebar" id="sidebar">
             <div class="menu p-4">
                 <div class="menu-item mb-2">
-                    <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec" class="menu-link block py-2 px-4 hover:bg-white/10 rounded-xl transition">
-                        <i class="fas fa-home mr-2 text-xs"></i> Beranda
+                    <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec" class="menu-link block py-2 px-4:bg-white/10 rounded-xl transition">
+                        <i class="fas fa-home mr-2 text-xs"></i> Beranda 
                     </a>
                 </div>
 
                 <div class="menu-item mb-2">
                     <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
-                        <span><i class="fas fa-poll-h mr-2 text-xs"></i> Survey</span>
+                        <span><i class="fas fa-poll-h mr-2 text-xs"></i> Survey  ▾</span>
                         <i class="fas fa-chevron-down text-bold-[12px] transition-transform"></i>
                     </div>
                     <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6">
                         <div class="menu-item">
                             <div class="text-bold-[12px] py-2 opacity-70 cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
-                                Formulir Survey <i class="fas fa-chevron-down scale-75"></i>
+                                Formulir Survey ▾<i class="fas fa-chevron-down scale-75"></i>
                             </div>
                             <div class="submenu hidden flex flex-col gap-1">
                                 <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Anti Korupsi</a>
@@ -140,7 +140,7 @@
                         </div>
                         <div class="menu-item">
                             <div class="text-bold-[12px] py-2 opacity-70 cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
-                                Hasil Survey <i class="fas fa-chevron-down scale-75"></i>
+                                Hasil Survey ▾<i class="fas fa-chevron-down scale-75"></i>
                             </div>
                             <div class="submenu hidden flex flex-col gap-1">
                                 <a href="#" class="text-bold-[12px] py-1 opacity-60 hover:opacity-100 hover:text-white">• Hasil Anti Korupsi</a>
@@ -150,7 +150,7 @@
                     </div>
                     <div class="menu-item">
                         <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
-                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Sekretariat</span>
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> Sekretariat ▾</span>
                             <i class="fas fa-chevron-down text-[10px]"></i>
                         </div>
                         <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
@@ -163,12 +163,12 @@
             </div>
         </aside>
 
-        <main class="flex-1 flex flex-col items-center justify-center text-center px-10">
+        <main class="flex-1 flex flex-col items-center justify-center text-center px-8">
             <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
-                <h3 class="text-white text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
+                <h3 class="text-green-400 text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
                 <h1 class="text-white text-3xl md:text-4xl font-black leading-tight">
-                    Portal Satu Data<br>
-                    <span class="text-green-400">Kementerian Agama</span><br>
+                    Di Portal Satu Data<br>
+                    <span class="text-yellow-400">Kementerian Agama</span><br>
                     <span class="text-2xl md:text-2xl">Kabupaten Konawe</span>
                 </h1>
                 
