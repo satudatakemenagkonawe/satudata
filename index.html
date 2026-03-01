@@ -8,7 +8,6 @@
     
     <style>
         
-        /* Pastikan Sidebar tidak muncul sebelum diklik */
         .sidebar {
             position: fixed;
             top: 10%;
@@ -63,14 +62,12 @@
             gap: 15px;
         }
         
-        /* Tombol di HP agar tetap putih terang */
         .btn-mobile {
             background-color: #ffffff !important;
             color: #1a1a1a !important;
             font-weight: bold;
         }
 
-        /* Pastikan layar bisa di-scroll di HP */
         body, html { 
             margin: 0; 
             padding: 0; 
@@ -121,6 +118,20 @@
         .submenu.active {
             display: flex;
         }
+
+        .container {
+            display: grid;
+            /* Elemen akan otomatis menyesuaikan jumlah kolom */
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        img, video {
+            max-width: 100%;
+            height: auto;
+        }
+
+
     </style>
 </head>
 
@@ -265,8 +276,12 @@
         </aside>
 
         <main class="flex-1 flex flex-col items-center justify-center text-center px-10">
+            <div class="mt-8 w-full max-w-4xl mx-auto">
+                <marquee class="text-yellow-400 font-bold text-lg md:text-xl tracking-widest drop-shadow-md" scrollamount="7">
+                    Selamat Datang di Portal Satu Data Kementerian Agama Kabupaten Konawe
+                </marquee>
+            </div>
             <div class="glass-effect mt-8 p-12 max-w-4xl shadow-3xl">
-                <h3 class="text-white text-2xl font-semibold tracking-[0.3em] mb-4">Selamat Datang</h3>
                 <h1 class="text-white text-3xl md:text-4xl font-black leading-tight">
                     Portal Satu Data<br>
                     <span class="text-green-400">Kementerian Agama</span><br>
@@ -293,11 +308,7 @@
                         </button>
                     </a>
                 </div>
-                <div class="mt-8 w-full max-w-4xl mx-auto">
-                    <marquee class="text-yellow-400 font-bold text-lg md:text-xl tracking-widest drop-shadow-md" scrollamount="7">
-                        Selamat Datang di Portal Satu Data Kementerian Agama Kabupaten Konawe
-                    </marquee>
-                </div>
+
             </div>
         </main>
     
