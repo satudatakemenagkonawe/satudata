@@ -342,7 +342,33 @@
             </div>
         </footer>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
+        // Total pengunjung (local browser)
+        let total = localStorage.getItem("totalVisits");
+            total = total ? parseInt(total) + 1 : 1;
+            localStorage.setItem("totalVisits", total);
+
+        // Hitung pengunjung hari ini
+        let today = new Date().toLocaleDateString();
+        let lastDate = localStorage.getItem("visitDate");
+        let todayCount = localStorage.getItem("todayVisits");
+
+        if (lastDate === today) {
+            todayCount = todayCount ? parseInt(todayCount) + 1 : 1;
+        } else {
+            todayCount = 1;
+            localStorage.setItem("visitDate", today);
+        }
+
+            localStorage.setItem("todayVisits", todayCount);
+
+        // Tampilkan ke footer
+        document.getElementById("stat-today").innerText = todayCount;
+        document.getElementById("stat-total").innerText = total;
+        });
+    </script>
     <script>
         function toggleMenu() {
             const sidebar = document.getElementById('sidebar');
