@@ -155,7 +155,7 @@
         <aside class="sidebar" id="sidebar">
             <div class="menu p-4">
                 <div class="menu-item mb-2">
-                    <a href="https://script.google.com/macros/s/AKfycbwilCwnDqti_3P6FX9S_e8F6tbcOLYVLv3jlR19ZPW8sWkmrou-4ZdUGNMyQxw_RoIZ/exec" class="menu-link block py-2 px-4:bg-white/10 rounded-xl transition">
+                    <a href="#" class="menu-link block py-2 px-4:bg-white/10 rounded-xl transition">
                         <i class="fas fa-home mr-2 text-xs"></i> Beranda 
                     </a>
                 </div>
@@ -236,6 +236,17 @@
                     </div>
                     <div class="menu-item">
                         <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
+                            <span><i class="fas fa-users-cog mr-2 text-xs"></i> PAI ▾</span>
+                            <i class="fas fa-chevron-down text-[10px]"></i>
+                        </div>
+                        <div class="submenu hidden pl-6 mt-1 flex flex-col gap-1 border-l border-white/10 ml-6 text-bold-[12px]">
+                            <a href="https://docs.google.com/spreadsheets/d/17IL6rEhvGIjdsHSVkPwYGvKSrZlAjM9TQTqO6Wg0Qj0/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Sekolah Binaan</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1NevbKOSwUN9XJhhpNv_KS_igawQ3WRH0GHgukNXLaq8/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Guru PAI</a>
+                            <a href="https://docs.google.com/spreadsheets/d/1udXS5hSia9zz4DV5p4xLN4unuVkZT3x_L7GrXF6gjSU/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Data Siswa</a>
+                        </div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="menu-link py-2 px-4 hover:bg-white/10 rounded-xl cursor-pointer flex justify-between items-center" onclick="toggleSubmenu(this)">
                             <span><i class="fas fa-users-cog mr-2 text-xs"></i> PD Pontren ▾</span>
                             <i class="fas fa-chevron-down text-[10px]"></i>
                         </div>
@@ -270,8 +281,11 @@
                             <a href="https://docs.google.com/spreadsheets/d/1Rid1ucLJ332i2hqGsp7pl_X0JVPfIXWfFVOT8qJYAeQ/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Zakat,Infaq, & Sedekah</a>
                             <a href="https://docs.google.com/spreadsheets/d/1VhAWtpUcSx4NzFGefuS0W67bTMwvwIUZV3M7SG0yBk0/edit?usp=sharing" target="_blank" class="block px-4 py-2 hover:bg-green-50 hover:text-green-700">Sertifikasi Produk Halal</a>
                         </div>
-                    </div>
-                </div>
+                <div class="menu-item mb-2">
+                    <a href="https://docs.google.com/spreadsheets/d/1BVg5a_NN4nFg7nxoxYU50kRRkSQSltN-XwgsZ0Y7UOE/edit?usp=sharing" class="menu-link block py-2 px-4:bg-white/10 rounded-xl transition">
+                        <i class="fas fa-home mr-2 text-xs"></i> Pokjawas 
+                    </a>
+                </div>                        
             </div>
         </aside>
 
@@ -312,22 +326,19 @@
             </div>
         </main>
     
-        <footer class="py-12 px-12 text-white/100">
-            <div class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-8 mt-4 md:mt-0 font-bold items-center">
-                <span>Pengunjung Hari ini: 
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonawe_Daily&style=0005&nbdigits=3&type=ip&initCount=0" title="Daily Visitors" Alt="Visit Counter" border="0" class="inline-block h-4" />
-                </span>
-
-                <span>Total Pengunjung: 
-                    <img src="https://hitwebcounter.com/counter/counter.php?page=KemenagKonawe_Total&style=0005&nbdigits=5&type=page&initCount=100" title="Total Visitors" Alt="Visit Counter" border="0" class="inline-block h-4" />
-                </span>
-
-                <span id="realtime-clock" class="text-yellow-400"></span>
+        <footer style="display: flex; justify-content: space-between; align-items: center; padding: 15px 25px; background: #d8ecb1; border-top: 1px solid #110233; font-size: 16px; color: #0b0c0c;">
+            <div>
+                © 2026 <strong>Kemenag Kabupaten Konawe</strong>. All Rights Reserved.
             </div>
-            <div class="text-center px-4">    
-                <p class="text-white text-[12px] md:text-xs opacity-80 tracking-wider">
-                    © 2026 Kantor Kementerian Agama Kab. Konawe
-                </p>
+  
+            <div id="visitor-stats" style="display: flex; gap: 15px; font-family: sans-serif;">
+                <span title="Halaman dilihat hari ini">
+                    <i class="fas fa-eye"></i> Pengunjung Hari ini: <b id="stat-today">0</b>
+                </span>
+                <span style="color: #ccc;">|</span>
+                <span title="Total seluruh halaman dilihat">
+                    <i class="fas fa-chart-line"></i> Total Pengunjung: <b id="stat-total">0</b>
+                </span>
             </div>
         </footer>
     </div>
