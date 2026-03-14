@@ -1,0 +1,8 @@
+{
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
+    "r.rterm.windows": "C:\\Program Files\\R\\R-4.4.0\\bin\\x64\\R.exe",
+    "r.path": "C:\\Program Files\\R\\R-4.4.0\\bin\\x64\\R.exe",
+    "r.bracketedPaste": true,
+    "terminal.integrated.defaultProfile.windows": "PowerShell"
+}
